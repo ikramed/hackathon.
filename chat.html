@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>AICommune</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+    <style>
+        .hidden {
+            display: none;
+        }
+        .active {
+            background-color: #40E0D0;
+            color: white;
+        }
+    </style>
+</head>
+<body class="bg-gray-100">
+<div class="flex flex-col lg:flex-row h-screen">
+    
+    <!-- Sidebar -->
+    <div id="sidebar" class="bg-gray-200 w-full lg:w-1/4 p-4 flex flex-col justify-between hidden lg:block">
+        <div>
+            <div class="flex items-center mb-4">
+                <img alt="AICommun logo" class="mr-2 rounded-full" height="40" src="Logo.png" width="40"/>
+                <span>AICom</span>
+            </div>
+            <br><br>
+            <div class="space-y-2">
+                <div class="space-y-6">
+                    <div class="font-bold">Interactive Exercises</div>
+                    <div class="pl-4 space-y-7">
+                        <div class="cursor-pointer p-2 rounded" onclick="setActive(this); startConversation('communication')">Personality Insights</div>
+                        <div class="cursor-pointer p-2 rounded" onclick="setActive(this); showCommunicationForm()">Communication</div>
+                        <div class="cursor-pointer p-2 rounded" onclick="setActive(this); showConfidenceBuilding()">Confidence Building</div>
+                        <div class="cursor-pointer p-2 rounded" onclick="setActive(this); showSocialSituations()">Social Situations Practice</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br>
+        <div>
+            <button class="p-2 bg-gray-500 text-white rounded w-full" onclick="goBack()">Back</button>
+        </div>
+    </div>
+    <!-- Main Content -->
+    <div class="flex-1 flex flex-col">
+        <div class="p-4 lg:hidden flex justify-between">
+            <button class="p-2 bg-blue-500 text-white rounded" onclick="toggleSidebar()">Menu</button>
+           
+        </div>
+        <div class="flex-1 flex flex-col lg:flex-row">
+            <!-- Chat Section -->
+            <div class="w-full lg:w-2/3 p-4 space-y-4">
+                <div class="hidden" id="chat-container">
+                    <div class="flex items-center space-x-2">
+                        <img alt="AICommun logo" class="mr-2 rounded-full" height="40" src="Logo.png" width="40"/>
+                        <div>
+                            <div class="font-bold">AI</div>
+                            <div class="text-sm text-gray-500">Now</div>
+                            <div class="space-y-2" id="chat-messages">
+                              
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flex items-center space-x-2 mt-4">
+                        <input class="w-full p-2 border rounded" id="user-input" placeholder="Ask a question..." type="text"/>
+                        <button class="p-2 bg-[#40E0D0] text-white rounded" onclick="sendMessage()">
+                            <i class="fas fa-paper-plane"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="hidden" id="communication-form">
+                    <div class="w-full max-w-4xl bg-white p-6 rounded-lg shadow-lg">
+                        <h1 class="text-4xl font-bold text-center text-teal-500 mb-8">Communication Training Activities</h1>
+                        
+                        <!-- Activity 1: Conversation Simulation -->
+                        <section id="activity-1" class="mb-12">
+                            <h2 class="text-3xl text-teal-400 mb-4">1. Conversation Simulation</h2>
+                            <p class="text-lg mb-4">Interact with a virtual character of your choice (colleague, old friend, or teacher) in different scenarios:</p>
+                            <ul class="list-disc pl-6 mb-4">
+                                <li>Spontaneous conversation (e.g., in a café or public place).</li>
+                                <li>Formal conversation (e.g., job interview or official meeting).</li>
+                                <li>Interactive response where you answer questions or choose how to react in given situations.</li>
+                            </ul>
+                            <button onclick="startConversationSimulation()" class="bg-teal-500 text-white px-4 py-2 rounded-lg hover:bg-teal-400 transition">Start Conversation Simulation</button>
+                        </section>
+                        
+                        <!-- Activity 2: Daily Challenges -->
+                        <section id="activity-2" class="mb-12">
+                            <h2 class="text-3xl text-teal-400 mb-4">2. Daily Challenges</h2>
+                            <p class="text-lg mb-4">Your daily communication challenge:</p>
+                            <ul class="list-disc pl-6 mb-4">
+                                <li>Engage in a conversation with a stranger about a random topic.</li>
+                                <li>Afterward, write about your experience or share a video recording of the conversation.</li>
+                                <li>Receive personalized tips to improve your communication skills based on your response.</li>
+                            </ul>
+                            <button onclick="startDailyChallenge()" class="bg-teal-500 text-white px-4 py-2 rounded-lg hover:bg-teal-400 transition">Start Daily Challenge</button>
+                        </section>
+                
+                        <!-- Activity 3: Interactive Scenarios -->
+                        <section id="activity-3" class="mb-12">
+                            <h2 class="text-3xl text-teal-400 mb-4">3. Interactive Scenarios</h2>
+                            <p class="text-lg mb-4">Face real-life communication challenges in different scenarios:</p>
+                            <ul class="list-disc pl-6 mb-4">
+                                <li>Speaking in front of an audience (presentation or project pitch).</li>
+                                <li>Handling objections from someone who disagrees with your idea.</li>
+                                <li>Emotional conversation (dealing with sensitive topics with loved ones).</li>
+                            </ul>
+                            <button onclick="startInteractiveScenarios()" class="bg-teal-500 text-white px-4 py-2 rounded-lg hover:bg-teal-400 transition">Start Interactive Scenarios</button>
+                        </section>
+                
+                        <!-- Activity 4: Q&A Sessions -->
+                        <section id="activity-4" class="mb-12">
+                            <h2 class="text-3xl text-teal-400 mb-4">4. Q&A Sessions</h2>
+                            <p class="text-lg mb-4">Answer communication-related questions:</p>
+                            <ul class="list-disc pl-6 mb-4">
+                                <li>How do you handle a shy person in conversations?</li>
+                                <li>How do you provide feedback based on a previous conversation?</li>
+                            </ul>
+                            <button onclick="startQandASession()" class="bg-teal-500 text-white px-4 py-2 rounded-lg hover:bg-teal-400 transition">Start Q&A Session</button>
+                        </section>
+                
+                        <!-- Activity 5: Active Listening Training -->
+                        <section id="activity-5" class="mb-12">
+                            <h2 class="text-3xl text-teal-400 mb-4">5. Active Listening Training</h2>
+                            <p class="text-lg mb-4">Listen to short conversations and answer questions about what you heard.</p>
+                            <button onclick="startActiveListeningTraining()" class="bg-teal-500 text-white px-4 py-2 rounded-lg hover:bg-teal-400 transition">Start Active Listening</button>
+                        </section>
+                
+                        <!-- Activity 6: Self-Assessment -->
+                        <section id="activity-6" class="mb-12">
+                            <h2 class="text-3xl text-teal-400 mb-4">6. Self-Assessment</h2>
+                            <p class="text-lg mb-4">Take a self-assessment test to measure your communication progress.</p>
+                            <button onclick="startSelfAssessment()" class="bg-teal-500 text-white px-4 py-2 rounded-lg hover:bg-teal-400 transition">Start Self-Assessment</button>
+                        </section>
+                
+                        <!-- Activity 7: Encouragement Responses -->
+                        <section id="activity-7" class="mb-12">
+                            <h2 class="text-3xl text-teal-400 mb-4">7. Encouragement Responses</h2>
+                            <p class="text-lg mb-4">After each activity, you'll receive motivational feedback on your communication efforts.</p>
+                            <button onclick="startEncouragement()" class="bg-teal-500 text-white px-4 py-2 rounded-lg hover:bg-teal-400 transition">Start Encouragement</button>
+                        </section>
+                
+                        <!-- Activity 8: Non-verbal Communication -->
+                        <section id="activity-8" class="mb-12">
+                            <h2 class="text-3xl text-teal-400 mb-4">8. Non-verbal Communication</h2>
+                            <p class="text-lg mb-4">Participate in scenarios where you communicate only through body language and gestures.</p>
+                            <button onclick="startNonVerbalCommunication()" class="bg-teal-500 text-white px-4 py-2 rounded-lg hover:bg-teal-400 transition">Start Non-verbal Communication</button>
+                        </section>
+                
+                        <!-- Activity 9: Dialogue with Another Person -->
+                        <section id="activity-9" class="mb-12">
+                            <h2 class="text-3xl text-teal-400 mb-4">9. Dialogue with Another Person</h2>
+                            <p class="text-lg mb-4">Record or participate in a dialogue with another person (AI or human) where you respond to specific prompts or comments.</p>
+                            <button onclick="startDialogueWithPerson()" class="bg-teal-500 text-white px-4 py-2 rounded-lg hover:bg-teal-400 transition">Start Dialogue</button>
+                        </section>
+                    </div>
+                
+                    <script>
+                        
+                
+                        function startConversationSimulation() {
+                            alert("Starting Conversation Simulation!");
+                          
+                        }
+                
+                        function startDailyChallenge() {
+                            alert("Starting Daily Challenge!");
+                           
+                        }
+                
+                        function startInteractiveScenarios() {
+                            alert("Starting Interactive Scenarios!");
+                          
+                        }
+                
+                        function startQandASession() {
+                            alert("Starting Q&A Session!");
+                           
+                        }
+                
+                        function startActiveListeningTraining() {
+                            alert("Starting Active Listening Training!");
+                            
+                        }
+                
+                        function startSelfAssessment() {
+                            alert("Starting Self-Assessment!");
+                            
+                        }
+                
+                        function startEncouragement() {
+                            alert("Starting Encouragement Responses!");
+                        }
+                
+                        function startNonVerbalCommunication() {
+                            alert("Starting Non-verbal Communication!");
+                            
+                        }
+                
+                        function startDialogueWithPerson() {
+                            alert("Starting Dialogue with Another Person!");
+                            
+                        }
+                    </script>
+                </div>
+                <div class="hidden" id="confidence-building">
+                    <header class="text-center mb-8">
+                        <h1 class="text-4xl font-bold text-blue-600">Confidence Building Activities</h1>
+                        <p class="mt-4 text-xl text-gray-700">Boost your confidence with daily challenges, exercises, and affirmations.</p>
+                    </header>
+            
+                  
+                    <section class="bg-white rounded-lg shadow-lg p-8 mb-10">
+                        <h2 class="text-3xl font-semibold text-gray-800">Daily Confidence Challenge</h2>
+                        <p class="mt-4 text-lg text-gray-600">Today's challenge: Introduce yourself to a stranger. It could be at a café or on your walk. Remember, confidence grows with each step you take!</p>
+                        <textarea class="mt-4 w-full p-4 border border-gray-300 rounded-lg" rows="4" placeholder="Write about your experience here..."></textarea>
+                        <button class="mt-4 w-full bg-blue-500 text-white p-3 rounded-lg">Submit Reflection</button>
+                        <div class="mt-4 text-gray-700">
+                            <p><strong>Feedback:</strong> Well done! The first step is always the hardest. Next time, try to ask them a question to keep the conversation going!</p>
+                        </div>
+                    </section>
+            
+                    <!-- Confidence Self-Assessment Test -->
+                    <section class="bg-white rounded-lg shadow-lg p-8 mb-10">
+                        <h2 class="text-3xl font-semibold text-gray-800">Confidence Self-Assessment</h2>
+                        <p class="mt-4 text-lg text-gray-600">How confident are you in different situations?</p>
+                        <form>
+                            <label for="public-speaking" class="block text-lg text-gray-700">How comfortable are you speaking in public?</label>
+                            <select id="public-speaking" class="w-full p-3 mt-2 border border-gray-300 rounded-lg">
+                                <option value="1">Not comfortable</option>
+                                <option value="2">Somewhat comfortable</option>
+                                <option value="3">Very comfortable</option>
+                            </select>
+                            <label for="opinion-sharing" class="block text-lg text-gray-700 mt-4">Do you feel confident sharing your opinion in groups?</label>
+                            <select id="opinion-sharing" class="w-full p-3 mt-2 border border-gray-300 rounded-lg">
+                                <option value="1">Not confident</option>
+                                <option value="2">Somewhat confident</option>
+                                <option value="3">Very confident</option>
+                            </select>
+                            <button type="submit" class="mt-4 w-full bg-blue-500 text-white p-3 rounded-lg">Submit Self-Assessment</button>
+                        </form>
+                    </section>
+            
+                    <!-- Affirmation Exercises Section -->
+                    <section class="bg-white rounded-lg shadow-lg p-8 mb-10">
+                        <h2 class="text-3xl font-semibold text-gray-800">Affirmation Exercises</h2>
+                        <p class="mt-4 text-lg text-gray-600">Repeat the following affirmations daily to build your self-confidence:</p>
+                        <ul class="list-disc list-inside mt-4 text-gray-700">
+                            <li>"I am capable of handling any challenges that come my way."</li>
+                            <li>"I am confident and prepared for the future."</li>
+                            <li>"I trust in my abilities and am constantly growing."</li>
+                        </ul>
+                        <textarea class="mt-4 w-full p-4 border border-gray-300 rounded-lg" rows="4" placeholder="Write your thoughts about today's affirmations..."></textarea>
+                        <button class="mt-4 w-full bg-blue-500 text-white p-3 rounded-lg">Submit Affirmation Practice</button>
+                    </section>
+            
+                    <!-- Visualization Exercise Section -->
+                    <section class="bg-white rounded-lg shadow-lg p-8 mb-10">
+                        <h2 class="text-3xl font-semibold text-gray-800">Visualization Exercise</h2>
+                        <p class="mt-4 text-lg text-gray-600">Close your eyes and imagine yourself giving a successful presentation to an audience. Picture yourself speaking confidently and engaging your listeners.</p>
+                        <textarea class="mt-4 w-full p-4 border border-gray-300 rounded-lg" rows="4" placeholder="Describe the visualization experience..."></textarea>
+                        <button class="mt-4 w-full bg-blue-500 text-white p-3 rounded-lg">Submit Visualization</button>
+                    </section>
+            
+                    <!-- Public Speaking Practice -->
+                    <section class="bg-white rounded-lg shadow-lg p-8 mb-10">
+                        <h2 class="text-3xl font-semibold text-gray-800">Public Speaking Practice</h2>
+                        <p class="mt-4 text-lg text-gray-600">Record a 2-minute video introducing a topic you are passionate about. It could be anything from a hobby to a recent event.</p>
+                        <button class="mt-4 w-full bg-blue-500 text-white p-3 rounded-lg">Upload Your Video</button>
+                        <div class="mt-4 text-gray-700">
+                            <p><strong>Feedback:</strong> Keep practicing! Remember to maintain eye contact and slow your speech to help with nerves.</p>
+                        </div>
+                    </section>
+            
+                    <!-- Motivation Section -->
+                    <section class="bg-white rounded-lg shadow-lg p-8 mb-10">
+                        <h2 class="text-3xl font-semibold text-gray-800">Daily Motivation</h2>
+                        <p class="mt-4 text-xl text-green-600 font-semibold">"You are capable, confident, and growing every day. Keep pushing your limits!"</p>
+                    </section>
+                </div>
+                <div class="hidden" id="social-situations">
+                   
+    <div class="container mx-auto py-10 px-4">
+        <!-- Header -->
+        <header class="text-center mb-8">
+            <h1 class="text-4xl font-bold text-blue-600">Social Situations Practice</h1>
+            <p class="mt-4 text-xl text-gray-700">Enhance your social skills by practicing different social scenarios with confidence!</p>
+        </header>
+
+        <!-- Business Meeting Simulation -->
+        <section class="bg-white rounded-lg shadow-lg p-8 mb-10">
+            <h2 class="text-3xl font-semibold text-gray-800">Business Meeting Simulation</h2>
+            <p class="mt-4 text-lg text-gray-600">Scenario: You are at a business meeting discussing a new project proposal. The client is hesitant about the proposed plan. How do you respond to convince them to approve it?</p>
+            <textarea class="mt-4 w-full p-4 border border-gray-300 rounded-lg" rows="4" placeholder="Write your response here..."></textarea>
+            <button class="mt-4 w-full bg-blue-500 text-white p-3 rounded-lg">Submit Response</button>
+            <div class="mt-4 text-gray-700">
+                <p><strong>Feedback:</strong> Great attempt! In this type of situation, it's important to listen actively to the client's concerns and address them with clear, fact-based solutions. Try to remain calm and confident throughout the conversation.</p>
+            </div>
+        </section>
+
+        <!-- Social Event Interaction -->
+        <section class="bg-white rounded-lg shadow-lg p-8 mb-10">
+            <h2 class="text-3xl font-semibold text-gray-800">Social Event Interaction</h2>
+            <p class="mt-4 text-lg text-gray-600">Scenario: You are attending a party and meet someone new. You need to start a conversation. How do you initiate the conversation and keep it going smoothly?</p>
+            <textarea class="mt-4 w-full p-4 border border-gray-300 rounded-lg" rows="4" placeholder="Write your conversation starter and follow-up questions..."></textarea>
+            <button class="mt-4 w-full bg-blue-500 text-white p-3 rounded-lg">Submit Conversation</button>
+            <div class="mt-4 text-gray-700">
+                <p><strong>Feedback:</strong> Good job! Remember, starting with a compliment or an interesting question can ease the conversation. Keep the topic light and allow the other person to share their interests.</p>
+            </div>
+        </section>
+
+        <!-- Constructive Conversation -->
+        <section class="bg-white rounded-lg shadow-lg p-8 mb-10">
+            <h2 class="text-3xl font-semibold text-gray-800">Constructive Conversation</h2>
+            <p class="mt-4 text-lg text-gray-600">Scenario: You and a colleague disagree on a project idea. How do you voice your opinion without escalating the situation and keep the conversation productive?</p>
+            <textarea class="mt-4 w-full p-4 border border-gray-300 rounded-lg" rows="4" placeholder="Write how you would handle this disagreement..."></textarea>
+            <button class="mt-4 w-full bg-blue-500 text-white p-3 rounded-lg">Submit Disagreement Handling</button>
+            <div class="mt-4 text-gray-700">
+                <p><strong>Feedback:</strong> Well done! In such situations, focus on using "I" statements and express your thoughts in a calm, respectful manner. Show openness to the other person's ideas and aim for a collaborative resolution.</p>
+            </div>
+        </section>
+
+        <!-- Social Media Conversation -->
+        <section class="bg-white rounded-lg shadow-lg p-8 mb-10">
+            <h2 class="text-3xl font-semibold text-gray-800">Social Media Interaction</h2>
+            <p class="mt-4 text-lg text-gray-600">Scenario: You are replying to a controversial post on social media. How do you respectfully share your perspective without escalating tensions?</p>
+            <textarea class="mt-4 w-full p-4 border border-gray-300 rounded-lg" rows="4" placeholder="Write your respectful response here..."></textarea>
+            <button class="mt-4 w-full bg-blue-500 text-white p-3 rounded-lg">Submit Response</button>
+            <div class="mt-4 text-gray-700">
+                <p><strong>Feedback:</strong> Excellent! It's important to remain respectful and avoid personal attacks. Express your views clearly, and try to understand the other side of the argument before responding.</p>
+            </div>
+        </section>
+
+        <!-- Confidence Boosting -->
+        <section class="bg-white rounded-lg shadow-lg p-8 mb-10">
+            <h2 class="text-3xl font-semibold text-gray-800">Confidence Boosting</h2>
+            <p class="mt-4 text-lg text-gray-600">Challenge: Step into a social scenario where you are outside of your comfort zone. Whether it's joining a new conversation or asking someone for help, take small steps to boost your confidence.</p>
+            <button class="mt-4 w-full bg-green-500 text-white p-3 rounded-lg">Submit Confidence Boost</button>
+            <div class="mt-4 text-gray-700">
+                <p><strong>Feedback:</strong> Great effort! The key to building social confidence is consistent practice. Every conversation you have is a step toward becoming more comfortable in any situation.</p>
+            </div>
+        </section>
+
+        <!-- Motivation Section -->
+        <section class="bg-white rounded-lg shadow-lg p-8 mb-10">
+            <h2 class="text-3xl font-semibold text-gray-800">Motivation</h2>
+            <p class="mt-4 text-xl text-green-600 font-semibold">"The more you practice, the more confident you become. Keep going and embrace every opportunity to grow!"</p>
+        </section>
+    </div>
+
+
+
+<script>
+    function setActive(element) {
+        
+        const buttons = document.querySelectorAll('.pl-4 .cursor-pointer');
+        buttons.forEach(button => button.classList.remove('active'));
+
+        
+        element.classList.add('active');
+
+        
+        if (window.innerWidth < 1024) {
+            document.getElementById('sidebar').classList.add('hidden');
+        }
+    }
+
+    function startConversation(topic) {
+        document.getElementById('chat-container').classList.remove('hidden');
+        document.getElementById('communication-form').classList.add('hidden');
+        document.getElementById('confidence-building').classList.add('hidden');
+        document.getElementById('social-situations').classList.add('hidden');
+        document.getElementById('chat-messages').innerHTML = `<div>Let's talk about ${topic}.</div>`;
+    }
+
+    function showCommunicationForm() {
+        document.getElementById('communication-form').classList.remove('hidden');
+        document.getElementById('chat-container').classList.add('hidden');
+        document.getElementById('confidence-building').classList.add('hidden');
+        document.getElementById('social-situations').classList.add('hidden');
+    }
+
+    function showConfidenceBuilding() {
+        document.getElementById('confidence-building').classList.remove('hidden');
+        document.getElementById('communication-form').classList.add('hidden');
+        document.getElementById('chat-container').classList.add('hidden');
+        document.getElementById('social-situations').classList.add('hidden');
+    }
+
+    function showSocialSituations() {
+        document.getElementById('social-situations').classList.remove('hidden');
+        document.getElementById('confidence-building').classList.add('hidden');
+        document.getElementById('communication-form').classList.add('hidden');
+        document.getElementById('chat-container').classList.add('hidden');
+    }
+
+    function showAnalysis() {
+        document.getElementById('analysis-container').classList.remove('hidden');
+        document.getElementById('exercises-container').classList.add('hidden');
+        document.getElementById('tips-container').classList.add('hidden');
+    }
+
+    function showExercises() {
+        document.getElementById('analysis-container').classList.add('hidden');
+        document.getElementById('exercises-container').classList.remove('hidden');
+        document.getElementById('tips-container').classList.add('hidden');
+    }
+
+    function showTips() {
+        document.getElementById('analysis-container').classList.add('hidden');
+        document.getElementById('exercises-container').classList.add('hidden');
+        document.getElementById('tips-container').classList.remove('hidden');
+    }
+
+    async function startAnalysis() {
+        document.getElementById('analysis-result').innerHTML = 'Analyzing...';
+        
+        setTimeout(() => {
+            document.getElementById('analysis-result').innerHTML = 'You are an extrovert!';
+        }, 2000);
+    }
+
+    async function startExercise() {
+        document.getElementById('exercise-result').innerHTML = 'Starting exercise...';
+        
+        setTimeout(() => {
+            document.getElementById('exercise-result').innerHTML = 'Exercise completed! Great job!';
+        }, 2000);
+    }
+
+    async function getTips() {
+        document.getElementById('tips-result').innerHTML = 'Fetching tips...';
+        
+        setTimeout(() => {
+            document.getElementById('tips-result').innerHTML = 'Tip: Practice deep breathing to stay calm.';
+        }, 2000);
+    }
+
+    async function startJobInterview() {
+        document.getElementById('job-interview-result').innerHTML = 'Starting job interview simulation...';
+        
+        setTimeout(() => {
+            document.getElementById('job-interview-result').innerHTML = 'Job interview completed! Great job!';
+        }, 2000);
+    }
+
+    async function startNetworking() {
+        document.getElementById('networking-result').innerHTML = 'Starting networking event simulation...';
+        
+        setTimeout(() => {
+            document.getElementById('networking-result').innerHTML = 'Networking event completed! Great job!';
+        }, 2000);
+    }
+
+    async function startSmallTalk() {
+        document.getElementById('small-talk-result').innerHTML = 'Starting small talk practice...';
+        
+        setTimeout(() => {
+            document.getElementById('small-talk-result').innerHTML = 'Small talk practice completed! Great job!';
+        }, 2000);
+    }
+
+    async function startPublicSpeaking() {
+        document.getElementById('public-speaking-result').innerHTML = 'Starting public speaking practice...';
+        
+        setTimeout(() => {
+            document.getElementById('public-speaking-result').innerHTML = 'Public speaking practice completed! Great job!';
+        }, 2000);
+    }
+
+    async function sendMessage() {
+    const userInput = document.getElementById('user-input').value;
+    if (userInput.trim() === '') return;
+
+    const chatMessages = document.getElementById('chat-messages');
+    const userMessage = `<div class="text-right"><strong>You:</strong> ${userInput}</div>`;
+    chatMessages.innerHTML += userMessage;
+
+    try {
+        
+        const response = await fetch('https://deepseek.runasp.net/api/deepseek?apiKey=Nkgq72HqqgPx9NR61Ci4jgedUqv8YOm4RoMd56d8qYEgYJZjDOQSr2xkeNX50UHOcWGqywMrJUs9w7I5b1GObZkDLB0ZKSiOLiCgiDFx3guBYKX6a0cgVZMEedZLccHD', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                text: userInput
+            })
+        });
+
+        
+        if (!response.ok) {
+            console.error("API Error:", response.status);
+            return;
+        }
+
+        const data = await response.text();
+        const aiResponse = `<div><strong>AI:</strong> ${data}</div>`;
+        chatMessages.innerHTML += aiResponse;
+
+    } catch (error) {
+        console.error("Error:", error);
+    }
+}
+
+
+    function goBack() {
+        window.history.back();
+    }
+
+    function toggleSidebar() {
+        const sidebar = document.getElementById('sidebar');
+        sidebar.classList.toggle('hidden');
+    }
+
+    function toggleProfile() {
+        const profile = document.getElementById('profile');
+        profile.classList.toggle('hidden');
+    }
+</script>
+</body></html>

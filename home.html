@@ -1,0 +1,276 @@
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>AI Courses</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        .card:hover {
+            transform: scale(1.05);
+            transition: transform 0.3s ease-in-out;
+        }
+        .popup {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: white;
+            padding: 20px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+            z-index: 1000;
+        }
+        .popup-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.5);
+            z-index: 999;
+        }
+    </style>
+</head>
+<body class="bg-gray-100">
+<div class="flex">
+    <!-- Sidebar -->
+    <div class="bg-gray-300 w-16 h-screen flex flex-col items-center py-4 space-y-20">
+        <br>
+        <a href="profile.html">
+            <i class="fas fa-user text-xl"></i>
+        </a>
+        <a href="update.html">
+            <i class="fas fa-cog text-xl"></i>
+        </a>
+        <a href="chat.html">
+            <i class="fas fa-comments text-xl"></i>
+        </a>
+    </div>
+    <!-- Main Content -->
+    <div class="flex-1 p-8 ml-16">
+        <!-- Featured AI Courses -->
+        <h1 class="text-2xl font-bold mb-4">Featured AI Courses</h1>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
+            <!-- Course Card 1 -->
+            <div class="bg-white shadow-md rounded-lg overflow-hidden card" data-course="AI Communication Skills" data-redirect="card1.html">
+                <img alt="AI Communication Skills" class="w-full h-32 object-cover" height="400"
+                     src="Image (2).png"
+                     width="600"/>
+                <div class="p-4">
+                    <div class="flex items-center mb-2">
+                        <img alt="Instructor" class="w-8 h-8 rounded-full mr-2" height="100"
+                             src="https://storage.googleapis.com/a1aa/image/u_pyVDRdtP63jtQ0ASCSEDXOYvG_NiuRVk_5qZXipt0.jpg"
+                             width="100"/>
+                        <span class="font-semibold">AI</span>
+                    </div>
+                    <h2 class="text-lg font-semibold mb-2">AI Communication Skills</h2>
+                    <div class="flex items-center text-gray-600 text-sm mb-2">
+                        <i class="fas fa-clock mr-1"></i>
+                        Interac
+                        <i class="fas fa-star ml-4 mr-1"></i>
+                        Highl
+                    </div>
+                    <button class="bg-[#40E0D0] text-white px-4 py-2 rounded enroll-btn">Enroll</button>
+                </div>
+            </div>
+            <!-- Course Card 2 -->
+            <div class="bg-white shadow-md rounded-lg overflow-hidden card" data-course="Effective Communication" data-redirect="card2.html">
+                <img alt="Effective Communication" class="w-full h-32 object-cover" height="400"
+                     src="https://storage.googleapis.com/a1aa/image/RVqzSrpdxXrQfCu_b5dV6U72UkzNpz7qIye286xLDNg.jpg"
+                     width="600"/>
+                <div class="p-4">
+                    <div class="flex items-center mb-2">
+                        <img alt="Instructor" class="w-8 h-8 rounded-full mr-2" height="100"
+                             src="https://storage.googleapis.com/a1aa/image/u_pyVDRdtP63jtQ0ASCSEDXOYvG_NiuRVk_5qZXipt0.jpg"
+                             width="100"/>
+                        <span class="font-semibold">AI</span>
+                    </div>
+                    <h2 class="text-lg font-semibold mb-2">Effective Communication</h2>
+                    <div class="flex items-center text-gray-600 text-sm mb-2">
+                        <i class="fas fa-clock mr-1"></i>
+                        1h
+                        <i class="fas fa-star ml-4 mr-1"></i>
+                        4.5/5
+                    </div>
+                    <button class="bg-[#40E0D0] text-white px-4 py-2 rounded enroll-btn">Join</button>
+                </div>
+            </div>
+            <!-- Course Card 3 -->
+            <div class="bg-white shadow-md rounded-lg overflow-hidden card" data-course="Personality Analysis" data-redirect="card3.html">
+                <img alt="Personality Analysis" class="w-full h-32 object-cover" height="400"
+                     src="Image (3).png"
+                     width="600"/>
+                <div class="p-4">
+                    <div class="flex items-center mb-2">
+                        <img alt="Instructor" class="w-8 h-8 rounded-full mr-2" height="100"
+                             src="https://storage.googleapis.com/a1aa/image/u_pyVDRdtP63jtQ0ASCSEDXOYvG_NiuRVk_5qZXipt0.jpg"
+                             width="100"/>
+                        <span class="font-semibold">AIComm</span>
+                    </div>
+                    <h2 class="text-lg font-semibold mb-2">Personality Analysis</h2>
+                    <div class="flex items-center text-gray-600 text-sm mb-2">
+                        <i class="fas fa-clock mr-1"></i>
+                        Interac
+                        <i class="fas fa-star ml-4 mr-1"></i>
+                        4.8/5
+                    </div>
+                    <button class="bg-[#40E0D0] text-white px-4 py-2 rounded enroll-btn">Try now</button>
+                </div>
+            </div>
+            <!-- Course Card 4 -->
+            <div class="bg-white shadow-md rounded-lg overflow-hidden card" data-course="Communication Skills" data-redirect="card4.html">
+                <img alt="Communication Skills" class="w-full h-32 object-cover" height="400"
+                     src="Image (4).png"
+                     width="600"/>
+                <div class="p-4">
+                    <div class="flex items-center mb-2">
+                        <img alt="Instructor" class="w-8 h-8 rounded-full mr-2" height="100"
+                             src="https://storage.googleapis.com/a1aa/image/u_pyVDRdtP63jtQ0ASCSEDXOYvG_NiuRVk_5qZXipt0.jpg"
+                             width="100"/>
+                        <span class="font-semibold">AIComm</span>
+                    </div>
+                    <h2 class="text-lg font-semibold mb-2">Communication Skills</h2>
+                    <div class="flex items-center text-gray-600 text-sm mb-2">
+                        <i class="fas fa-clock mr-1"></i>
+                        1h 30m
+                        <i class="fas fa-star ml-4 mr-1"></i>
+                        4.5/5
+                    </div>
+                    <button class="bg-[#40E0D0] text-white px-4 py-2 rounded enroll-btn">Start now</button>
+                </div>
+            </div>
+        </div>
+        <!-- Categories -->
+        <h2 class="text-2xl font-bold mb-4">Categories</h2>
+        <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-7 gap-4 mb-8">
+          
+            <a href="ex.html">
+                <div class="bg-[#40E0D0] text-center py-4 rounded-lg">Exercises</div>
+            </a>
+          
+            <a href="chat.html">
+                <div class="bg-[#40E0D0] text-center py-4 rounded-lg">Confidence</div>
+            </a>
+           
+        </div>
+        <!-- My Learning -->
+        <h2 class="text-2xl font-bold mb-4">My Learning</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
+            <!-- Learning Card 1 -->
+            <div class="bg-white shadow-md rounded-lg overflow-hidden learning-card" data-redirect="learn.html">
+                <div class="flex">
+                    <img alt="Enhancing Communication" class="w-1/3 h-full object-cover" height="400"
+                         src="https://storage.googleapis.com/a1aa/image/TN7Tc6djyt9JUYFshPlhNI-HhZN-lpDqhuVQadRaKjs.jpg"
+                         width="600"/>
+                    <div class="p-4 flex-1">
+                        <h3 class="text-lg font-semibold mb-2">Enhancing Communication</h3>
+                        <p class="text-gray-600 mb-2">AICommune User</p>
+                        <p class="text-gray-600 mb-2">Progress Tracking</p>
+                        <div class="bg-gray-200 h-2 rounded-full overflow-hidden">
+                            <div class="bg-gray-600 h-full w-1/2"></div>
+                        </div>
+                    </div>
+                    <div class="p-4">
+                        <i class="fas fa-search text-xl"></i>
+                    </div>
+                </div>
+            </div>
+            <!-- Learning Card 2 -->
+            <div class="bg-white shadow-md rounded-lg overflow-hidden learning-card" data-redirect="learn1.html">
+                <div class="flex">
+                    <img alt="Personalized Advice Service" class="w-1/3 h-full object-cover" height="400"
+                         src="https://storage.googleapis.com/a1aa/image/ErBUotvqbQOjkMMLw6tr5cSpghkO_rZBvzJv-12r6FI.jpg"
+                         width="600"/>
+                    <div class="p-4 flex-1">
+                        <h3 class="text-lg font-semibold mb-2">Personalized Advice Service</h3>
+                        <p class="text-gray-600 mb-2">AICommune Expert</p>
+                        <p class="text-gray-600 mb-2">Guided Learning Path</p>
+                        <div class="bg-gray-200 h-2 rounded-full overflow-hidden">
+                            <div class="bg-gray-600 h-full w-1/3"></div>
+                        </div>
+                    </div>
+                    <div class="p-4">
+                        <i class="fas fa-search text-xl"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Explore Button -->
+        <div class="text-center">
+          <a href="us.html">
+            <button class="bg-[#40E0D0] text-white px-8 py-2 rounded">About </button> </a>
+        </div>
+    </div>
+</div>
+
+<!-- Popup Form -->
+<div id="popup-form" class="fixed inset-0 bg-gray-800 bg-opacity-50 flex items-center justify-center hidden">
+    <div class="bg-white p-8 rounded-lg shadow-lg w-96">
+        <h2 class="text-xl font-bold mb-4">Enroll in Course</h2>
+        <form id="enroll-form">
+            <div class="mb-4">
+                <label class="block text-gray-700 mb-2" for="name">Name</label>
+                <input class="w-full px-3 py-2 border rounded" id="name" name="name" type="text"/>
+            </div>
+            <div class="mb-4">
+                <label class="block text-gray-700 mb-2" for="email">Email</label>
+                <input class="w-full px-3 py-2 border rounded" id="email" name="email" type="email"/>
+            </div>
+            <div class="text-red-500 mb-4 hidden" id="error-message">Please fill out all fields.</div>
+            <button class="bg-blue-500 text-white px-4 py-2 rounded" type="submit">Submit</button>
+            <button class="bg-gray-500 text-white px-4 py-2 rounded ml-2" id="close-popup" type="button">Cancel</button>
+        </form>
+    </div>
+</div>
+
+<script>
+    $(document).ready(function () {
+        let redirectUrl = '';
+
+        // Show popup form
+        $('.enroll-btn').click(function (e) {
+            e.preventDefault();
+            const card = $(this).closest('.card');
+            redirectUrl = card.data('redirect');
+            $('#popup-form').removeClass('hidden');
+        });
+
+        // Close popup form
+        $('#close-popup').click(function () {
+            $('#popup-form').addClass('hidden');
+        });
+
+        // Handle form submission
+        $('#enroll-form').submit(function (e) {
+            e.preventDefault();
+            const name = $('#name').val();
+            const email = $('#email').val();
+
+            if (name === '' || email === '') {
+                $('#error-message').removeClass('hidden');
+            } else {
+                $('#error-message').addClass('hidden');
+
+               
+                const userData = {name: name, email: email};
+                localStorage.setItem('userData', JSON.stringify(userData));
+
+                alert('Registration successful! You can now access the content.');
+                $('#popup-form').addClass('hidden');
+               
+                window.location.href = redirectUrl;
+            }
+        });
+
+       
+        $('.learning-card').click(function () {
+            const redirectUrl = $(this).data('redirect');
+            window.location.href = redirectUrl;
+        });
+    });
+</script>
+</body>
+</html>

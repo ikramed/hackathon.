@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Communication Skills Course</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #f7fafc;
+        }
+        .fadeIn {
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeIn 1s ease-out forwards;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .container {
+            max-width: 800px;
+            margin: auto;
+            padding: 20px;
+        }
+        .btn {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-align: center;
+            display: inline-block;
+            cursor: pointer;
+        }
+        .btn:hover {
+            background-color: #45a049;
+        }
+        .exercise-box {
+            background-color: white;
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+            transition: transform 0.3s ease;
+        }
+        .exercise-box:hover {
+            transform: scale(1.05);
+        }
+        .exercise-title {
+            font-size: 1.2rem;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        .emoji {
+            font-size: 1.5rem;
+        }
+    </style>
+</head>
+<body class="bg-gray-100 text-gray-800">
+
+    <div class="container mx-auto p-4">
+        <button class="btn mb-4" onclick="goBack()">🔙 Back</button>
+
+        <h1 class="text-4xl font-bold text-center mb-8 fadeIn">🎤 Mastering Communication Skills</h1>
+        <p class="text-center mb-8 fadeIn">Effective communication is essential for connecting with others, both personally and professionally. Learn how to communicate better with this interactive course! 💬</p>
+
+        <h2 class="text-2xl font-semibold mb-4 fadeIn">1. Introduction to Communication</h2>
+        <p class="mb-4 fadeIn">Communication is the act of transferring information through various means. Let's explore its importance and different types.</p>
+
+        <div class="exercise-box fadeIn">
+            <h3 class="exercise-title">Exercise 1: What is the primary goal of communication? 🤔</h3>
+            <div>
+                <label for="mcq1">Choose the right answer:</label>
+                <select id="mcq1" class="w-full p-2 border rounded mb-4" onchange="saveAnswer('mcq1')">
+                    <option value="a">a) To talk</option>
+                    <option value="b">b) To inform and connect</option>
+                    <option value="c">c) To entertain</option>
+                    <option value="d">d) None of the above</option>
+                </select>
+            </div>
+        </div>
+
+        <h2 class="text-2xl font-semibold mb-4 fadeIn">2. Verbal Communication</h2>
+        <p class="mb-4 fadeIn">Your voice tone and clarity matter a lot in verbal communication. Let’s practice delivering your message clearly and confidently.</p>
+
+        <div class="exercise-box fadeIn">
+            <h3 class="exercise-title">Exercise 2: Record your speech 📢</h3>
+            <p class="mb-2">Choose a topic and record a brief speech. Focus on tone, clarity, and confidence. Once done, submit your response.</p>
+            <textarea id="exercise2" rows="4" class="w-full p-2 border rounded mb-4" placeholder="Record your speech..."></textarea>
+            <button class="btn" onclick="startRecording()">Start Recording 🎤</button>
+            <button class="btn" onclick="stopRecording()" id="stopBtn" disabled>Stop Recording 🛑</button>
+            <audio id="audioPlayer" controls class="mt-4" style="display:none;"></audio>
+            <button class="btn mt-4" onclick="saveAnswer('exercise2')">Submit 🎤</button>
+        </div>
+
+        <h2 class="text-2xl font-semibold mb-4 fadeIn">3. Non-Verbal Communication</h2>
+        <p class="mb-4 fadeIn">Your body language says a lot more than words. Learn how to use your gestures and posture to reinforce your message.</p>
+
+        <div class="exercise-box fadeIn">
+            <h3 class="exercise-title">Exercise 3: How can you improve your body language? 🧑‍🤝‍🧑</h3>
+            <textarea id="exercise3" rows="4" class="w-full p-2 border rounded mb-4" placeholder="Describe how you can improve your body language..."></textarea>
+            <button class="btn" onclick="saveAnswer('exercise3')">Submit 📝</button>
+        </div>
+
+        <h2 class="text-2xl font-semibold mb-4 fadeIn">4. Listening Skills</h2>
+        <p class="mb-4 fadeIn">Active listening is crucial in understanding and responding effectively. Practice listening carefully to others.</p>
+
+        <div class="exercise-box fadeIn">
+            <h3 class="exercise-title">Exercise 4: Active Listening Practice 🎧</h3>
+            <p>Listen to a conversation and summarize the key points. Write a brief summary below:</p>
+            <textarea id="exercise4" rows="4" class="w-full p-2 border rounded mb-4" placeholder="Write your summary here..."></textarea>
+            <button class="btn" onclick="saveAnswer('exercise4')">Submit 📝</button>
+        </div>
+
+        <h2 class="text-2xl font-semibold mb-4 fadeIn">5. Final Quiz and Scoring 📊</h2>
+        <p class="mb-4 fadeIn">Once you've completed the exercises, take a quick quiz to test your knowledge on communication skills.</p>
+
+        <button class="btn" onclick="finishCourse()">Finish Course 🏁</button>
+
+    </div>
+
+    <script>
+        
+        let mediaRecorder;
+        let audioChunks = [];
+        const audioPlayer = document.getElementById('audioPlayer');
+        const stopBtn = document.getElementById('stopBtn');
+
+       
+        function startRecording() {
+            navigator.mediaDevices.getUserMedia({ audio: true })
+                .then(stream => {
+                    mediaRecorder = new MediaRecorder(stream);
+                    mediaRecorder.start();
+
+                    mediaRecorder.ondataavailable = event => {
+                        audioChunks.push(event.data);
+                    };
+
+                    mediaRecorder.onstop = () => {
+                        const audioBlob = new Blob(audioChunks, { type: 'audio/wav' });
+                        const audioUrl = URL.createObjectURL(audioBlob);
+                        audioPlayer.src = audioUrl;
+                        audioPlayer.style.display = 'block';
+                        audioChunks = [];
+                    };
+
+                    stopBtn.disabled = false;
+                })
+                .catch(error => {
+                    console.error("Error accessing the microphone", error);
+                });
+        }
+
+      
+        function stopRecording() {
+            mediaRecorder.stop();
+            stopBtn.disabled = true;
+        }
+
+        
+        function saveAnswer(exerciseId) {
+            let answer = document.getElementById(exerciseId).value;
+            if (!answer) {
+                let selected = document.getElementById(exerciseId);
+                answer = selected ? selected.value : "";
+            }
+            localStorage.setItem(exerciseId, answer);
+            alert("Answer saved!");
+        }
+
+      
+        window.onload = function() {
+            let exercises = ['mcq1', 'exercise2', 'exercise3', 'exercise4'];
+            exercises.forEach(id => {
+                if (localStorage.getItem(id)) {
+                    document.getElementById(id).value = localStorage.getItem(id);
+                }
+            });
+        };
+
+        
+        function goBack() {
+            window.history.back();
+        }
+
+        
+        function finishCourse() {
+            let score = 0;
+
+          
+            if (localStorage.getItem('mcq1') === 'b') {
+                score += 10;
+            }
+
+            score += Math.min(document.getElementById('exercise2').value.length / 10, 10);
+            score += Math.min(document.getElementById('exercise3').value.length / 10, 10);
+            score += Math.min(document.getElementById('exercise4').value.length / 10, 10);
+
+            alert(`Course Completed! 🎉 Your score is: ${score}/40`);
+        }
+    </script>
+
+</body>
+</html>

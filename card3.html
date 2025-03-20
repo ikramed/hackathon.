@@ -1,0 +1,210 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Complete Personality Analysis Course</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #f7fafc;
+            margin: 0;
+            padding: 0;
+        }
+        .fadeIn {
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeIn 1s ease-out forwards;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .section-title {
+            color: #2b6cb0;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+        }
+        .btn {
+            transition: all 0.3s ease;
+        }
+        .btn:hover {
+            transform: scale(1.05);
+            background-color: #3182ce;
+        }
+        .sticker {
+            max-width: 60px;
+            margin-right: 10px;
+        }
+        .emoji {
+            font-size: 2rem;
+        }
+        .course-section {
+            margin-bottom: 40px;
+        }
+        .back-btn {
+            background-color: #2b6cb0;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-size: 1.2rem;
+        }
+    </style>
+</head>
+<body class="bg-gray-100 text-gray-800">
+
+    <div class="container mx-auto p-6">
+        <button class="back-btn" onclick="goBack()">🔙 Back</button>
+
+        <h1 class="text-4xl font-bold text-center mb-8 fadeIn">Personality Analysis Course 🧠</h1>
+        <p class="text-center mb-8 fadeInDelayed">Welcome to the complete course on Personality Analysis! 🌟 Understand yourself and others better through key traits. Let's dive in!</p>
+
+        <!-- Introduction to Personality Analysis -->
+        <div class="course-section fadeIn">
+            <h2 class="text-2xl font-semibold section-title">📘 Introduction to Personality</h2>
+            <p>Personality is the unique combination of characteristics, traits, and behaviors that make up who we are. Understanding personality can help us improve communication and build better relationships.</p>
+            <p>The Big Five personality traits are fundamental in understanding the diversity of personalities:</p>
+            <ul class="list-disc list-inside mb-4">
+                <li><strong>Openness:</strong> Willingness to try new things, creativity, and curiosity.</li>
+                <li><strong>Conscientiousness:</strong> Responsibility, organization, and dependability.</li>
+                <li><strong>Extraversion:</strong> Social behavior, assertiveness, and excitement-seeking.</li>
+                <li><strong>Agreeableness:</strong> Cooperation, kindness, and empathy.</li>
+                <li><strong>Neuroticism:</strong> Emotional stability, anxiety, and moodiness.</li>
+            </ul>
+        </div>
+
+        <!-- Understanding the Big Five -->
+        <div class="course-section fadeIn">
+            <h2 class="text-2xl font-semibold section-title">🌈 The Big Five Personality Traits</h2>
+            <p>Each of the Big Five personality traits can vary in degrees. Let's explore each trait:</p>
+
+            <h3 class="text-xl font-semibold">1. Openness 🌍</h3>
+            <p>This trait reflects how open you are to new experiences, ideas, and creativity. Highly open individuals are curious and enjoy exploring new concepts.</p>
+            <p><strong>Do:</strong> Be open to new experiences and stay curious!  
+            <strong>Avoid:</strong> Being rigid and close-minded to change.</p>
+
+            <h3 class="text-xl font-semibold">2. Conscientiousness 📅</h3>
+            <p>This trait reflects your level of organization and responsibility. Highly conscientious people tend to be disciplined and goal-oriented.</p>
+            <p><strong>Do:</strong> Stay organized and set goals.  
+            <strong>Avoid:</strong> Being overly perfectionist and too rigid.</p>
+
+            <h3 class="text-xl font-semibold">3. Extraversion 🥳</h3>
+            <p>Extraverted people enjoy socializing and being around others. They are energetic, assertive, and seek out social situations.</p>
+            <p><strong>Do:</strong> Engage in social activities and share your energy.  
+            <strong>Avoid:</strong> Overwhelming introverted individuals.</p>
+
+            <h3 class="text-xl font-semibold">4. Agreeableness ❤️</h3>
+            <p>Agreeable individuals are kind, cooperative, and empathetic. They prioritize relationships and harmony with others.</p>
+            <p><strong>Do:</strong> Be compassionate and help others.  
+            <strong>Avoid:</strong> Being overly passive and letting others take advantage of you.</p>
+
+            <h3 class="text-xl font-semibold">5. Neuroticism 😰</h3>
+            <p>This trait refers to emotional stability. People high in neuroticism are more prone to experiencing negative emotions, anxiety, and stress.</p>
+            <p><strong>Do:</strong> Practice stress management and stay calm under pressure.  
+            <strong>Avoid:</strong> Overthinking and emotional outbursts.</p>
+        </div>
+
+        <!-- Personality Exercise -->
+        <div class="course-section fadeInDelayed">
+            <h2 class="text-2xl font-semibold section-title">📝 Personality Self-Assessment</h2>
+            <p>Now that you understand the Big Five personality traits, let's do a quick self-assessment. Rate yourself on each trait from 1 to 5:</p>
+
+            <!-- Openness -->
+            <div class="mb-6">
+                <h3 class="text-xl font-semibold">Openness 🌍</h3>
+                <input type="number" id="openness" min="1" max="5" class="w-full p-2 border rounded mb-4" placeholder="Rate from 1 to 5">
+            </div>
+
+            <!-- Conscientiousness -->
+            <div class="mb-6">
+                <h3 class="text-xl font-semibold">Conscientiousness 📅</h3>
+                <input type="number" id="conscientiousness" min="1" max="5" class="w-full p-2 border rounded mb-4" placeholder="Rate from 1 to 5">
+            </div>
+
+            <!-- Extraversion -->
+            <div class="mb-6">
+                <h3 class="text-xl font-semibold">Extraversion 🥳</h3>
+                <input type="number" id="extraversion" min="1" max="5" class="w-full p-2 border rounded mb-4" placeholder="Rate from 1 to 5">
+            </div>
+
+            <!-- Agreeableness -->
+            <div class="mb-6">
+                <h3 class="text-xl font-semibold">Agreeableness ❤️</h3>
+                <input type="number" id="agreeableness" min="1" max="5" class="w-full p-2 border rounded mb-4" placeholder="Rate from 1 to 5">
+            </div>
+
+            <!-- Neuroticism -->
+            <div class="mb-6">
+                <h3 class="text-xl font-semibold">Neuroticism 😰</h3>
+                <input type="number" id="neuroticism" min="1" max="5" class="w-full p-2 border rounded mb-4" placeholder="Rate from 1 to 5">
+            </div>
+
+            <button onclick="saveAnswers()" class="btn bg-blue-500 text-white px-4 py-2 rounded">Submit Answers</button>
+        </div>
+
+        <!-- Results -->
+        <div id="results" class="course-section fadeInDelayed">
+            <h2 class="text-2xl font-semibold section-title">📊 Your Personality Results</h2>
+            <p id="resultText" class="font-semibold text-xl">Once you complete the exercises, your results will appear here.</p>
+        </div>
+    </div>
+
+    <script>
+        // Save answers in localStorage
+        function saveAnswers() {
+            const traits = ['openness', 'conscientiousness', 'extraversion', 'agreeableness', 'neuroticism'];
+            let valid = true;
+            traits.forEach(trait => {
+                const value = document.getElementById(trait).value;
+                if (value < 1 || value > 5 || isNaN(value)) {
+                    alert(`Please rate ${trait} between 1 and 5.`);
+                    valid = false;
+                } else {
+                    localStorage.setItem(trait, value);
+                }
+            });
+
+            if (valid) {
+                calculateResults();
+            }
+        }
+
+       
+        function calculateResults() {
+            const traits = ['openness', 'conscientiousness', 'extraversion', 'agreeableness', 'neuroticism'];
+            let totalScore = 0;
+            let validCount = 0;
+
+            traits.forEach(trait => {
+                const value = localStorage.getItem(trait);
+                if (value) {
+                    totalScore += parseInt(value);
+                    validCount++;
+                }
+            });
+
+            if (validCount === traits.length) {
+                const averageScore = totalScore / validCount;
+                let personalityType = "";
+
+                if (averageScore <= 2) {
+                    personalityType = "You may have a more introverted, low-stress personality. 🌱";
+                } else if (averageScore <= 4) {
+                    personalityType = "You have a balanced personality with openness to growth and social interaction. 💪";
+                } else {
+                    personalityType = "You're an extroverted, high-energy individual who enjoys challenges! 🌟";
+                }
+
+                document.getElementById("resultText").innerText = `Your average personality score: ${averageScore.toFixed(2)}\n${personalityType}`;
+            }
+        }
+
+        
+        function goBack() {
+            window.history.back();
+        }
+    </script>
+
+</body>
+</html>

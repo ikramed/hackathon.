@@ -1,0 +1,898 @@
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>AICommun</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        .fade-in {
+            animation: fadeIn 0.5s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+        .exercise-content {
+    display: none; 
+}
+
+.exercise-content.active {
+    display: block; 
+}
+
+    </style>
+</head>
+<body class="bg-white text-gray-800">
+<header class="flex justify-between items-center p-4 border-b">
+    <div class="flex items-center">
+        <img alt="AICommun logo" class="mr-2 rounded-full" height="40" src="Logo.png" width="40"/>
+        <span class="font-bold text-xl">AICom<span>
+    </div>
+    <nav class="space-x-4">
+        <a class="text-gray-600 hover:text-gray-800" href="home.html">Home</a>
+    </nav>
+</header>
+<div class="flex flex-col md:flex-row">
+    <aside class="w-full md:w-1/4 bg-pink-100 p-4">
+        <h2 class="font-bold mb-4">Filter Options</h2>
+        <div class="mb-4">
+            <h3 class="font-semibold mb-2">Skill Level</h3>
+            <div>
+                <input class="mr-2" id="beginner" name="skill-level" type="radio"/>
+                <label for="beginner">Beginner</label>
+            </div>
+            <div>
+                <input class="mr-2" id="intermediate" name="skill-level" type="radio"/>
+                <label for="intermediate">Intermediate</label>
+            </div>
+            <div>
+                <input class="mr-2" id="advanced" name="skill-level" type="radio"/>
+                <label for="advanced">Advanced</label>
+            </div>
+            
+            <div>
+                <h3 class="font-semibold mb-2">Scenario</h3>
+                <div>
+                    <input class="mr-2" id="public-speaking" name="scenario" type="radio"/>
+                    <label for="public-speaking">Public Speaking</label>
+                </div>
+                <div>
+                    <input class="mr-2" id="negotiation" name="scenario" type="radio"/>
+                    <label for="negotiation">Negotiation</label>
+                </div>
+                <div>
+                    <input class="mr-2" id="conflict-resolution" name="scenario" type="radio"/>
+                    <label for="conflict-resolution">Conflict Resolution</label>
+                </div>
+                <div>
+                    
+                </div>
+          </div>
+        </div>
+    </aside>
+    <main class="w-full md:w-3/4 p-4" id="main-content">
+        <h1 class="text-2xl font-bold mb-4">Interactive Exercises</h1>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mb-8">
+            <div class="bg-white p-4 shadow rounded">
+                <h2 class="font-bold mb-2">Exercise 1: Active Listening</h2>
+                <p class="mb-4">Learn to listen actively in conversations to build rapport and understanding.</p>
+                <button class="bg-pink-600 text-white px-4 py-2 rounded start-exercise" data-exercise="1">Start Exercise</button>
+            </div>
+            <div class="bg-white p-4 shadow rounded">
+                <h2 class="font-bold mb-2">Exercise 2: Empathy Practice</h2>
+                <p class="mb-4">Enhance your ability to empathize with others in various scenarios.</p>
+                <button class="bg-pink-600 text-white px-4 py-2 rounded start-exercise" data-exercise="2">Start Exercise</button>
+            </div>
+            <div class="bg-white p-4 shadow rounded">
+                <h2 class="font-bold mb-2">Exercise 3: Clear Articulation</h2>
+                <p class="mb-4">Improve the clarity and effectiveness of your verbal communication.</p>
+                <button class="bg-pink-600 text-white px-4 py-2 rounded start-exercise" data-exercise="3">Start Exercise</button>
+            </div>
+        </div>
+    
+        <div class="exercise-content" id="exercise-content-2" style="font-family: Arial, sans-serif; padding: 20px; border-radius: 8px;">
+            <h3 style="font-size: 2em; color: #d33f3f; text-align: center;">Exercise 2: Empathy Practice</h3>
+        
+            <p style="font-size: 1.2em; line-height: 1.6; color: #333333; margin-bottom: 20px;">
+                Empathy is the ability to understand and share the feelings of others. This exercise helps you improve your ability to empathize with people in different scenarios, whether they are experiencing joy or sadness.
+            </p>
+            
+            <h4 style="font-size: 1.5em; color: #d33f3f; margin-bottom: 10px;">Benefits of Empathy Practice:</h4>
+            <ul style="font-size: 1.2em; line-height: 1.6; color: #333333; margin-bottom: 20px;">
+                <li>Improves communication skills by making you more attuned to others' emotions.</li>
+                <li>Helps build stronger personal and professional relationships.</li>
+                <li>Assists in resolving conflicts peacefully and effectively.</li>
+            </ul>
+        
+            <h4 style="font-size: 1.5em; color: #d33f3f; margin-bottom: 10px;">How to Practice Empathy:</h4>
+            <ol style="font-size: 1.2em; line-height: 1.6; color: #333333; margin-bottom: 20px;">
+                <li><strong>Imagine yourself in their shoes:</strong> Try to put yourself in the other person’s position. Understand how they might feel.</li>
+                <li><strong>Active Listening:</strong> Listen carefully to what the person is saying, without interrupting or judging.</li>
+                <li><strong>Respond kindly and with support:</strong> Show empathy through your words and actions, demonstrating that you care about their feelings.</li>
+            </ol>
+        
+            <h4 style="font-size: 1.5em; color: #d33f3f; margin-bottom: 10px;">When to Use Empathy:</h4>
+            <ul style="font-size: 1.2em; line-height: 1.6; color: #333333; margin-bottom: 20px;">
+                <li>In everyday life, especially when someone is experiencing a difficult situation.</li>
+                <li>In the workplace, to build trust and strengthen relationships with colleagues.</li>
+                <li>In family settings, to create a supportive environment and foster understanding.</li>
+            </ul>
+        
+            <h4 style="font-size: 1.5em; color: #d33f3f; margin-bottom: 10px;">Practical Exercise to Enhance Empathy:</h4>
+            <ul style="font-size: 1.2em; line-height: 1.6; color: #333333; margin-bottom: 20px;">
+                <li>Choose a situation where you or someone else faced emotional challenges.</li>
+                <li>Imagine how the other person might have felt and put yourself in their shoes.</li>
+                <li>Express empathy by showing understanding and offering support.</li>
+            </ul>
+        
+            <h4 style="font-size: 1.5em; color: #d33f3f; margin-bottom: 10px;">Summary:</h4>
+            <p style="font-size: 1.2em; line-height: 1.6; color: #333333; margin-bottom: 20px;">
+                Empathy is a vital skill for building strong relationships and understanding others’ emotions. By practicing empathy, you can improve your communication, enhance your emotional intelligence, and foster better connections in both personal and professional settings.
+            </p>
+        
+            <h4 style="font-size: 1.5em; color: #d33f3f; margin-bottom: 10px;">Discussion Questions:</h4>
+            <ul style="font-size: 1.2em; line-height: 1.6; color: #333333; margin-bottom: 20px;">
+                <li>Can you think of a time when you showed empathy towards someone? How did they react?</li>
+                <li>What are some ways empathy can improve communication in the workplace?</li>
+            </ul>
+            <button class="bg-gray-600 text-white px-4 py-2 rounded" id="back-btn">Back</button>
+        </div>
+        <div class="exercise-content" id="exercise-content-1">
+          
+            <button class="bg-gray-600 text-white px-4 py-2 rounded" id="back-btn">Back</button>
+        </div>
+<div class="exercise-content" id="exercise-content-2">
+    <h3>Empathy Practice Content</h3>
+    <p>تفاصيل حول التمرين الثاني...</p>
+    <button class="bg-gray-600 text-white px-4 py-2 rounded" id="back-btn">Back</button>
+</div>
+<div class="exercise-content" id="exercise-content-3" style="font-family: Arial, sans-serif; padding: 20px; border-radius: 8px;">
+    <h3 style="font-size: 2em; color: #4b9cdb; text-align: center;">Exercise 3: Clear Articulation</h3>
+
+    <p style="font-size: 1.2em; line-height: 1.6; color: #333333; margin-bottom: 20px;">
+        Clear articulation is the ability to express your thoughts and ideas in a manner that is easy for others to understand. This exercise helps improve your verbal communication by focusing on the clarity and effectiveness of your speech.
+    </p>
+    
+    <h4 style="font-size: 1.5em; color: #4b9cdb; margin-bottom: 10px;">Benefits of Clear Articulation:</h4>
+    <ul style="font-size: 1.2em; line-height: 1.6; color: #333333; margin-bottom: 20px;">
+        <li>Helps ensure that your message is understood correctly.</li>
+        <li>Prevents misunderstandings in conversations.</li>
+        <li>Builds confidence in speaking publicly or in group settings.</li>
+    </ul>
+
+    <h4 style="font-size: 1.5em; color: #4b9cdb; margin-bottom: 10px;">How to Improve Articulation:</h4>
+    <ol style="font-size: 1.2em; line-height: 1.6; color: #333333; margin-bottom: 20px;">
+        <li><strong>Speak Slowly and Clearly:</strong> Avoid rushing your words; give each word its proper place.</li>
+        <li><strong>Work on Pronunciation:</strong> Ensure that your words are pronounced correctly to avoid confusion.</li>
+        <li><strong>Use Proper Pauses:</strong> Allow pauses in between your sentences or points for better understanding.</li>
+    </ol>
+
+    <h4 style="font-size: 1.5em; color: #4b9cdb; margin-bottom: 10px;">When to Use Clear Articulation:</h4>
+    <ul style="font-size: 1.2em; line-height: 1.6; color: #333333; margin-bottom: 20px;">
+        <li>In presentations, speeches, or any public speaking event.</li>
+        <li>In professional meetings where clarity is essential.</li>
+        <li>In everyday conversations to avoid miscommunication.</li>
+    </ul>
+
+    <h4 style="font-size: 1.5em; color: #4b9cdb; margin-bottom: 10px;">Practical Exercises to Improve Articulation:</h4>
+    <ul style="font-size: 1.2em; line-height: 1.6; color: #333333; margin-bottom: 20px;">
+        <li>Record yourself speaking and listen for areas where your articulation could improve.</li>
+        <li>Practice tongue twisters to help with pronunciation and speech fluidity.</li>
+        <li>Join a public speaking group or engage in conversations where clear articulation is important.</li>
+    </ul>
+
+    <h4 style="font-size: 1.5em; color: #4b9cdb; margin-bottom: 10px;">Summary:</h4>
+    <p style="font-size: 1.2em; line-height: 1.6; color: #333333; margin-bottom: 20px;">
+        Clear articulation is a key skill for effective communication. By practicing it, you ensure that your message is understood as intended, improving your confidence and helping you in both personal and professional settings.
+    </p>
+
+    <h4 style="font-size: 1.5em; color: #4b9cdb; margin-bottom: 10px;">Discussion Questions:</h4>
+    <ul style="font-size: 1.2em; line-height: 1.6; color: #333333; margin-bottom: 20px;">
+        <li>Have you ever experienced a misunderstanding due to unclear articulation? How did you resolve it?</li>
+        <li>What challenges do you face when trying to articulate your thoughts clearly?</li>
+    </ul>
+    <button class="bg-gray-600 text-white px-4 py-2 rounded" id="back-btn">Back</button>
+</div>
+   
+
+
+    </main>
+    
+</div>
+<footer class="bg-pink-100 p-4 mt-8">
+    <div class="flex flex-col md:flex-row justify-between">
+        <div>
+            <h3 class="font-bold mb-2">Contact Us</h3>
+            <p>Email: <a class="text-pink-600" href="mailto:support@aicom.com">support@aicom.com</a></p>
+            <p>Phone: +212 0632171692</p>
+        </div>
+        <div>
+            <h3 class="font-bold mb-2">Quick Links</h3>
+            <ul>
+                <li><a class="text-pink-600" href="us.html">About Us</a></li>
+                <li><a class="text-pink-600" href="us.html">Privacy Policy</a></li>
+                <li><a class="text-pink-600" href="us.html">Terms of Service</a></li>
+            </ul>
+        </div>
+        <div>
+            <h3 class="font-bold mb-2">Follow Us</h3>
+            <div class="flex space-x-4">
+                <a class="text-pink-600" href="#"><i class="fab fa-facebook"></i></a>
+                <a class="text-pink-600" href="#"><i class="fab fa-twitter"></i></a>
+                <a class="text-pink-600" href="#"><i class="fab fa-linkedin"></i></a>
+            </div>
+        </div>
+    </div>
+</footer>
+<script>
+
+const startButtons = document.querySelectorAll('.start-exercise');
+
+
+const backButtons = document.querySelectorAll('#back-btn');
+
+
+const sidebar = document.getElementById('sidebar');
+
+
+startButtons.forEach(button => {
+    button.addEventListener('click', function() {
+       
+        document.querySelectorAll('.exercise-content').forEach(content => {
+            content.classList.remove('active');
+        });
+
+      
+        document.querySelectorAll('.grid > div').forEach(exercise => {
+            exercise.style.display = 'none';
+        });
+
+        
+        const exerciseId = this.getAttribute('data-exercise');
+        const exerciseContent = document.getElementById('exercise-content-' + exerciseId);
+        exerciseContent.classList.add('active');
+        
+       
+        backButtons.forEach(backBtn => backBtn.style.display = 'inline-block');
+
+       
+        sidebar.style.display = 'block';
+    });
+});
+
+
+backButtons.forEach(button => {
+    button.addEventListener('click', function() {
+       
+        document.querySelectorAll('.exercise-content').forEach(content => {
+            content.classList.remove('active');
+        });
+
+        
+        document.querySelectorAll('.grid > div').forEach(exercise => {
+            exercise.style.display = 'block';
+        });
+
+       
+        backButtons.forEach(backBtn => backBtn.style.display = 'none');
+    });
+});
+
+
+    $(document).ready(function() {
+        let completedExercises = 5;
+
+        $('#beginner').on('click', function() {
+            $('#main-content').html(`
+                 <div style="background-color: #4CAF50; color: white; padding: 20px; text-align: center;">
+        <h1>Lesson: Active Listening for Beginners</h1>
+    </div>
+
+    <section style="padding: 20px;">
+        <h2 style="font-size: 24px; color: #2c3e50;">🌟 Introduction</h2>
+        <p style="font-size: 16px; line-height: 1.6;">
+            Active listening is an essential skill for work, relationships, and daily interactions. It’s not just about hearing words—it’s about truly understanding and engaging in conversations.
+        </p>
+    </section>
+
+    <section style="padding: 20px;">
+        <h2 style="font-size: 24px; color: #2c3e50;">🎯 Objectives:</h2>
+        <ul style="font-size: 16px; line-height: 1.6; list-style-type: disc; margin-left: 20px;">
+            <li>Understand what active listening is.</li>
+            <li>Learn techniques to become a better listener.</li>
+            <li>Practice with exercises to improve your listening skills.</li>
+        </ul>
+    </section>
+
+    <section style="padding: 20px; background-color: #ecf0f1;">
+        <h2 style="font-size: 24px; color: #2c3e50;">📌 1. What is Active Listening?</h2>
+        <p style="font-size: 16px; line-height: 1.6;">
+            Active listening means fully focusing on the speaker, understanding their message, and responding thoughtfully. It involves:
+        </p>
+        <ul style="font-size: 16px; line-height: 1.6; list-style-type: disc; margin-left: 20px;">
+            <li>✅ Paying full attention to the speaker.</li>
+            <li>✅ Understanding what is being said beyond just the words.</li>
+            <li>✅ Responding appropriately to show engagement and comprehension.</li>
+        </ul>
+        <p style="font-size: 16px; line-height: 1.6; margin-top: 20px;">
+            🎥 <a href="#" style="color: #2980b9;">Click Here (Example video on Active Listening)</a>
+        </p>
+    </section>
+
+    <section style="padding: 20px;">
+        <h2 style="font-size: 24px; color: #2c3e50;">🧠 2. Key Techniques for Active Listening</h2>
+
+        <h3 style="font-size: 20px; color: #2980b9;">🔊 A. Give Full Attention</h3>
+        <p style="font-size: 16px; line-height: 1.6;">
+            Avoid distractions (put away your phone, focus on the speaker). Maintain eye contact and nod to show engagement.
+        </p>
+
+        <h3 style="font-size: 20px; color: #2980b9;">📢 B. Show That You Are Listening</h3>
+        <p style="font-size: 16px; line-height: 1.6;">
+            Use phrases like "I see", "That makes sense", "Interesting!". Use facial expressions (smiling, nodding).
+        </p>
+
+        <h3 style="font-size: 20px; color: #2980b9;">💬 C. Reflect & Confirm</h3>
+        <p style="font-size: 16px; line-height: 1.6;">
+            Summarize by saying: "So, what you're saying is..." This helps the speaker feel heard and understood.
+        </p>
+
+        <h3 style="font-size: 20px; color: #2980b9;">🙋‍♂️ D. Ask Open-Ended Questions</h3>
+        <p style="font-size: 16px; line-height: 1.6;">
+            Instead of "Did you like it?", ask "What did you think about it?". This encourages deeper conversation.
+        </p>
+    </section>
+
+    <section style="padding: 20px; background-color: #ecf0f1;">
+        <h2 style="font-size: 24px; color: #2c3e50;">🎨 3. Stickers to Remember</h2>
+        <ul style="font-size: 16px; line-height: 1.6; list-style-type: none; padding: 0;">
+            <li>🌟 "Listen More, Speak Less!"</li>
+            <li>👂 "Listening is Understanding, Not Just Hearing!"</li>
+            <li>🔄 "Repeat, Confirm, Respond!"</li>
+        </ul>
+        <p style="font-size: 16px; line-height: 1.6; margin-top: 20px;">
+            📌 Save these stickers or write them down as reminders!
+        </p>
+    </section>
+
+    <section style="padding: 20px;">
+        <h2 style="font-size: 24px; color: #2c3e50;">🏋️‍♂️ 4. Exercises & Practice</h2>
+
+        <h3 style="font-size: 20px; color: #2980b9;">📝 Exercise 1: Active Listening Reflection</h3>
+        <p style="font-size: 16px; line-height: 1.6;">
+            📌 Try this in a conversation:
+        </p>
+        <ul style="font-size: 16px; line-height: 1.6; list-style-type: disc; margin-left: 20px;">
+            <li>Listen to someone carefully.</li>
+            <li>Repeat what they said in a short summary.</li>
+        </ul>
+
+        <h3 style="font-size: 20px; color: #2980b9;">🎭 Exercise 2: Role Play</h3>
+        <p style="font-size: 16px; line-height: 1.6;">
+            Partner up with a friend. Let them talk about something they enjoy. Show that you are listening by summarizing and asking questions.
+        </p>
+
+        <h3 style="font-size: 20px; color: #2980b9;">✅ Self-check:</h3>
+        <ul style="font-size: 16px; line-height: 1.6; list-style-type: disc; margin-left: 20px;">
+            <li>Did you interrupt them?</li>
+            <li>Did you respond in a way that made them feel heard?</li>
+            <li>Did you ask follow-up questions?</li>
+        </ul>
+    </section>
+
+    <section style="padding: 20px; background-color: #ecf0f1;">
+        <h2 style="font-size: 24px; color: #2c3e50;">🔹 Challenge:</h2>
+        <p style="font-size: 16px; line-height: 1.6;">
+            Try using these skills in a meeting or conversation and ask yourself:
+        </p>
+        <ul style="font-size: 16px; line-height: 1.6; list-style-type: disc; margin-left: 20px;">
+            <li>"Did I really listen?"</li>
+            <li>"Did I fully understand?"</li>
+        </ul>
+    </section>
+
+    <section style="padding: 20px; background-color: #4CAF50; color: white; text-align: center;">
+        <h2 style="font-size: 24px;">🚀 Now you're ready to master Active Listening!</h2>
+    </section>
+
+            `);
+        });
+
+        $('#intermediate').on('click', function() {
+            $('#main-content').html(`
+                <h1 style="text-align: center; color: #333; margin-bottom: 20px;">Advanced Listening Skills</h1>
+
+    <div class="section" style="margin: 20px 0; background-color: #fff; padding: 20px; border-radius: 8px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);">
+        <h2 style="color: #444; font-size: 1.8rem; margin-bottom: 15px;"><span style="font-size: 1.6rem; margin-right: 10px; vertical-align: middle;">🌟</span> 1. Listening in Complex Situations</h2>
+        <ul style="list-style-type: disc; margin-left: 20px; padding-left: 10px;">
+            <li style="margin-bottom: 8px;">Dealing with people from different cultural backgrounds: Learn how to understand non-verbal messages from diverse cultures.</li>
+            <li style="margin-bottom: 8px;">Listening in noisy environments: Develop the ability to listen in environments with a lot of distractions, such as large meetings or conversations in public places.</li>
+        </ul>
+    </div>
+
+    <div class="section" style="margin: 20px 0; background-color: #fff; padding: 20px; border-radius: 8px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);">
+        <h2 style="color: #444; font-size: 1.8rem; margin-bottom: 15px;"><span style="font-size: 1.6rem; margin-right: 10px; vertical-align: middle;">🧠</span> 2. Advanced Active Listening Techniques</h2>
+        <ul style="list-style-type: disc; margin-left: 20px; padding-left: 10px;">
+            <li style="margin-bottom: 8px;">Notice tone and voice: Pay attention to changes in tone and the emotions behind the words, not just the words themselves.</li>
+            <li style="margin-bottom: 8px;">Navigating between emotions and content: Differentiate between the emotions the speaker is conveying and the actual content they are presenting.</li>
+            <li style="margin-bottom: 8px;">Influence and persuasion strategies: Learn how to use active listening to influence others and persuade them in complex conversations or during negotiations.</li>
+        </ul>
+    </div>
+
+    <div class="section" style="margin: 20px 0; background-color: #fff; padding: 20px; border-radius: 8px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);">
+        <h2 style="color: #444; font-size: 1.8rem; margin-bottom: 15px;"><span style="font-size: 1.6rem; margin-right: 10px; vertical-align: middle;">🎯</span> 3. Emotional and Tactical Responses</h2>
+        <ul style="list-style-type: disc; margin-left: 20px; padding-left: 10px;">
+            <li style="margin-bottom: 8px;">Emotional responses: Don't just respond logically—engage with the speaker's emotions when the conversation requires it.</li>
+            <li style="margin-bottom: 8px;">Critical listening: Understand not only what is being said but also evaluate whether the information is logical, evidence-based, or subjective.</li>
+        </ul>
+    </div>
+
+    <div class="section" style="margin: 20px 0; background-color: #fff; padding: 20px; border-radius: 8px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);">
+        <h2 style="color: #444; font-size: 1.8rem; margin-bottom: 15px;"><span style="font-size: 1.6rem; margin-right: 10px; vertical-align: middle;">🔊</span> 4. Deep Understanding Skills</h2>
+        <ul style="list-style-type: disc; margin-left: 20px; padding-left: 10px;">
+            <li style="margin-bottom: 8px;">Critical analysis listening: Focus on distinguishing between direct statements and implied meanings.</li>
+            <li style="margin-bottom: 8px;">Handling difficult challenges: Listen to complex or controversial viewpoints and assess their validity.</li>
+        </ul>
+    </div>
+
+    <div class="section" style="margin: 20px 0; background-color: #fff; padding: 20px; border-radius: 8px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);">
+        <h2 style="color: #444; font-size: 1.8rem; margin-bottom: 15px;"><span style="font-size: 1.6rem; margin-right: 10px; vertical-align: middle;">📌</span> 5. Advanced Active Listening Exercises</h2>
+        <div class="exercise" style="margin: 15px 0;">
+            <h3 style="color: #2e3a59; font-size: 1.5rem; margin-bottom: 10px;">Exercise 1: Analyzing a Complex Conversation</h3>
+            <p style="margin-bottom: 10px; font-size: 1rem; color: #666;">Listen to a long, complex conversation (e.g., a lecture or interview) and focus on extracting key concepts and subtle details.</p>
+        </div>
+        <div class="exercise" style="margin: 15px 0;">
+            <h3 style="color: #2e3a59; font-size: 1.5rem; margin-bottom: 10px;">Exercise 2: Critical Listening</h3>
+            <p style="margin-bottom: 10px; font-size: 1rem; color: #666;">Listen to an article or podcast that presents an argument or idea. Then, analyze the validity of the evidence, assumptions, and conclusions made.</p>
+        </div>
+        <div class="exercise" style="margin: 15px 0;">
+            <h3 style="color: #2e3a59; font-size: 1.5rem; margin-bottom: 10px;">Exercise 3: Negotiation Simulation</h3>
+            <p style="margin-bottom: 10px; font-size: 1rem; color: #666;">Simulate a negotiation session with a partner and apply active listening techniques to reach an agreement.</p>
+        </div>
+    </div>
+
+    <div class="section" style="margin: 20px 0; background-color: #fff; padding: 20px; border-radius: 8px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);">
+        <h2 style="color: #444; font-size: 1.8rem; margin-bottom: 15px;"><span style="font-size: 1.6rem; margin-right: 10px; vertical-align: middle;">🔹</span> 6. Advanced Challenge</h2>
+        <p style="margin-bottom: 10px; font-size: 1rem; color: #666;">Try applying these skills in real-life scenarios like conferences or conversations with people who have opposing views. This will help you improve your ability to handle complex information or mixed emotions during conversations.</p>
+    </div>
+            `);
+        });
+
+        $('#advanced').on('click', function() {
+            $('#main-content').html(`
+               
+        <div style="background-color: #8E44AD; color: white; padding: 20px; text-align: center;">
+            <h1>Lesson: Advanced Active Listening Techniques</h1>
+        </div>
+
+        <section style="padding: 20px;">
+            <h2 style="font-size: 24px; color: #2c3e50;">🌟 Introduction</h2>
+            <p style="font-size: 16px; line-height: 1.6;">
+                Advanced active listening requires a deep understanding of non-verbal cues, complex emotional intelligence, and the ability to manage high-stakes conversations with finesse.
+            </p>
+        </section>
+
+        <section style="padding: 20px;">
+            <h2 style="font-size: 24px; color: #2c3e50;">🎯 Objectives:</h2>
+            <ul style="font-size: 16px; line-height: 1.6; list-style-type: disc; margin-left: 20px;">
+                <li>Refine your understanding of advanced active listening techniques.</li>
+                <li>Learn to interpret non-verbal communication.</li>
+                <li>Master handling difficult conversations with empathy and tact.</li>
+            </ul>
+        </section>
+
+        <section style="padding: 20px; background-color: #ecf0f1;">
+            <h2 style="font-size: 24px; color: #2c3e50;">📌 1. Non-Verbal Communication</h2>
+            <p style="font-size: 16px; line-height: 1.6;">
+                Non-verbal communication can tell you more about someone's feelings than words alone. Pay close attention to:
+            </p>
+            <ul style="font-size: 16px; line-height: 1.6; list-style-type: disc; margin-left: 20px;">
+                <li>✅ Facial expressions and body language.</li>
+                <li>✅ Tone and pitch of voice.</li>
+                <li>✅ Gestures and posture.</li>
+            </ul>
+            <p style="font-size: 16px; line-height: 1.6; margin-top: 20px;">
+                🎥 <a href="#" style="color: #2980b9;">Click Here (Non-Verbal Communication Example)</a>
+            </p>
+        </section>
+
+        <section style="padding: 20px;">
+            <h2 style="font-size: 24px; color: #2c3e50;">🧠 2. Emotional Intelligence in Active Listening</h2>
+            <p style="font-size: 16px; line-height: 1.6;">
+                Emotional intelligence helps you read and respond to emotional cues. Key techniques include:
+            </p>
+
+            <h3 style="font-size: 20px; color: #2980b9;">🤔 A. Empathy Beyond Words</h3>
+            <p style="font-size: 16px; line-height: 1.6;">
+                Go beyond active listening to understand the emotions behind words. This requires focusing on the speaker's emotional state, not just the content.
+            </p>
+
+            <h3 style="font-size: 20px; color: #2980b9;">💡 B. Managing Difficult Conversations</h3>
+            <p style="font-size: 16px; line-height: 1.6;">
+                Keep calm, focused, and empathetic during high-stakes conversations. It's important to control your emotional response to avoid escalating the situation.
+            </p>
+        </section>
+
+        <section style="padding: 20px; background-color: #ecf0f1;">
+            <h2 style="font-size: 24px; color: #2c3e50;">🎨 3. Strategies for Difficult Conversations</h2>
+            <ul style="font-size: 16px; line-height: 1.6; list-style-type: none; padding: 0;">
+                <li>🌟 "Listen, Understand, Respond." – Practice patience and restraint.</li>
+                <li>👂 "Validate Emotions, Not Just Words." – Acknowledge the speaker’s emotions.</li>
+                <li>🔄 "Ask Clarifying Questions." – Ensure you fully understand before responding.</li>
+            </ul>
+            <p style="font-size: 16px; line-height: 1.6; margin-top: 20px;">
+                📌 Keep these strategies in mind to handle challenging conversations effectively.
+            </p>
+        </section>
+
+        <section style="padding: 20px;">
+            <h2 style="font-size: 24px; color: #2c3e50;">🏋️‍♂️ 4. Advanced Exercises & Practice</h2>
+
+            <h3 style="font-size: 20px; color: #2980b9;">📝 Exercise 1: Advanced Listening in Action</h3>
+            <p style="font-size: 16px; line-height: 1.6;">
+                📌 Reflect on a challenging conversation you had recently. Analyze the non-verbal cues and emotional dynamics involved.
+            </p>
+
+            <h3 style="font-size: 20px; color: #2980b9;">🎭 Exercise 2: Emotional Intelligence Role-Play</h3>
+            <p style="font-size: 16px; line-height: 1.6;">
+                Practice responding to emotionally charged statements in a calm and empathetic manner with a partner.
+            </p>
+        </section>
+            `);
+        });
+
+        $(document).on('click', '.finish-exercise', function() {
+            let correctAnswers = 0;
+            $('input[type="radio"]:checked').each(function() {
+                if ($(this).val() === 'correct') {
+                    correctAnswers++;
+                }
+            });
+
+            completedExercises++;
+            $('#progress-text').text(`You've completed ${completedExercises} out of 10 exercises. Keep going to reach your goal!`);
+            $('#main-content').html(`
+                <div class="fade-in">
+                    <h1 class="text-2xl font-bold mb-4">Interactive Exercises</h1>
+                    <p class="mb-4">You answered ${correctAnswers} questions correctly.</p>
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mb-8">
+                        <div class="bg-white p-4 shadow rounded">
+                            <h2 class="font-bold mb-2">Exercise 1: Active Listening</h2>
+                            <p class="mb-4">Learn to listen actively in conversations to build rapport and understanding.</p>
+                            <button class="bg-pink-600 text-white px-4 py-2 rounded start-exercise" data-exercise="1">Start Exercise</button>
+                        </div>
+                        <div class="bg-white p-4 shadow rounded">
+                            <h2 class="font-bold mb-2">Exercise 2: Empathy Practice</h2>
+                            <p class="mb-4">Enhance your ability to empathize with others in various scenarios.</p>
+                            <button class="bg-pink-600 text-white px-4 py-2 rounded start-exercise" data-exercise="2">Start Exercise</button>
+                        </div>
+                        <div class="bg-white p-4 shadow rounded">
+                            <h2 class="font-bold mb-2">Exercise 3: Clear Articulation</h2>
+                            <p class="mb-4">Improve the clarity and effectiveness of your verbal communication.</p>
+                            <button class="bg-pink-600 text-white px-4 py-2 rounded start-exercise" data-exercise="3">Start Exercise</button>
+                        </div>
+                    </div>
+                    <h2 class="text-2xl font-bold mb-4">Your Progress</h2>
+                    <div class="flex items-center">
+                        <img alt="Progress chart" class="mr-4" height="100" src="https://storage.googleapis.com/a1aa/image/bvlgnMGp-isZdnKRAJSTBk_JbrhuW3RkQUyNC6bE9Ws.jpg" width="100"/>
+                        <p id="progress-text">You've completed ${completedExercises} out of 10 exercises. Keep going to reach your goal!</p>
+                    </div>
+                </div>
+            `);
+        });
+        $('#public-speaking').on('click', function() {
+    $('#main-content').html(`
+        <div style="background-color: #3498DB; color: white; padding: 20px; text-align: center;">
+            <h1>Lesson: Public Speaking - Mastering the Art of Communication</h1>
+        </div>
+
+        <section style="padding: 20px;">
+            <h2 style="font-size: 24px; color: #2c3e50;">🌟 Introduction</h2>
+            <p style="font-size: 16px; line-height: 1.6;">
+                Public speaking is an essential skill that can benefit you in both personal and professional life. This course will cover the key aspects of becoming a confident and effective public speaker.
+            </p>
+        </section>
+
+        <section style="padding: 20px;">
+            <h2 style="font-size: 24px; color: #2c3e50;">🎯 Objectives</h2>
+            <ul style="font-size: 16px; line-height: 1.6; list-style-type: disc; margin-left: 20px;">
+                <li>Improve confidence when speaking in front of an audience.</li>
+                <li>Learn effective voice modulation and body language.</li>
+                <li>Understand how to organize and deliver a persuasive speech.</li>
+            </ul>
+        </section>
+
+        <section style="padding: 20px; background-color: #ecf0f1;">
+            <h2 style="font-size: 24px; color: #2c3e50;">📌 1. The Basics of Public Speaking</h2>
+            <p style="font-size: 16px; line-height: 1.6;">
+                Public speaking starts with overcoming the fear of speaking in front of others. Here are some key strategies:
+            </p>
+            <ul style="font-size: 16px; line-height: 1.6; list-style-type: disc; margin-left: 20px;">
+                <li>✅ Practice regularly to build comfort and confidence.</li>
+                <li>✅ Maintain eye contact to connect with your audience.</li>
+                <li>✅ Speak clearly and at an appropriate pace.</li>
+            </ul>
+            <p style="font-size: 16px; line-height: 1.6; margin-top: 20px;">
+                🎥 <a href="#" style="color: #2980b9;">Click Here (Public Speaking Example)</a>
+            </p>
+        </section>
+
+        <section style="padding: 20px;">
+            <h2 style="font-size: 24px; color: #2c3e50;">🧠 2. Overcoming Fear and Nervousness</h2>
+            <p style="font-size: 16px; line-height: 1.6;">
+                It's natural to feel nervous before speaking in front of others. Here are some tips to reduce anxiety:
+            </p>
+            <ul style="font-size: 16px; line-height: 1.6; list-style-type: disc; margin-left: 20px;">
+                <li>🌟 Breathe deeply to calm your nerves.</li>
+                <li>🌟 Visualize your success before stepping on stage.</li>
+                <li>🌟 Focus on the message, not on yourself.</li>
+            </ul>
+        </section>
+
+        <section style="padding: 20px; background-color: #ecf0f1;">
+            <h2 style="font-size: 24px; color: #2c3e50;">🎯 3. Voice Modulation and Body Language</h2>
+            <p style="font-size: 16px; line-height: 1.6;">
+                A great speaker is not just someone who talks, but someone who engages their audience with their voice and body language. Some key points include:
+            </p>
+            <ul style="font-size: 16px; line-height: 1.6; list-style-type: disc; margin-left: 20px;">
+                <li>📣 Vary your tone to keep the audience engaged.</li>
+                <li>👐 Use hand gestures to emphasize key points.</li>
+                <li>🏃‍♂️ Move around to engage with different sections of the audience.</li>
+            </ul>
+        </section>
+
+        <section style="padding: 20px;">
+            <h2 style="font-size: 24px; color: #2c3e50;">🧠 4. Organizing Your Speech</h2>
+            <p style="font-size: 16px; line-height: 1.6;">
+                A well-structured speech keeps the audience engaged. Here's how you can organize your speech:
+            </p>
+            <ul style="font-size: 16px; line-height: 1.6; list-style-type: disc; margin-left: 20px;">
+                <li>✅ Start with an attention-grabbing opening.</li>
+                <li>✅ Present your main points clearly and logically.</li>
+                <li>✅ End with a strong conclusion and call to action.</li>
+            </ul>
+        </section>
+
+        <section style="padding: 20px; background-color: #ecf0f1;">
+            <h2 style="font-size: 24px; color: #2c3e50;">💬 5. Practicing Public Speaking</h2>
+            <ul style="font-size: 16px; line-height: 1.6; list-style-type: none; padding: 0;">
+                <li>🌟 Record yourself speaking to identify areas for improvement.</li>
+                <li>🎤 Practice in front of a mirror to observe your body language.</li>
+                <li>📅 Participate in public speaking clubs like Toastmasters to get feedback.</li>
+            </ul>
+        </section>
+
+        <section style="padding: 20px;">
+            <h2 style="font-size: 24px; color: #2c3e50;">🎯 6. Final Tips</h2>
+            <ul style="font-size: 16px; line-height: 1.6; list-style-type: none; padding: 0;">
+                <li>🌟 Always be prepared, but be ready to improvise if necessary.</li>
+                <li>🌟 Build a connection with your audience through storytelling.</li>
+                <li>🌟 Keep practicing to build your skills over time.</li>
+            </ul>
+        </section>
+    `);
+});
+$('#negotiation').on('click', function() {
+    $('#main-content').html(`
+        <div style="background-color: #E67E22; color: white; padding: 20px; text-align: center;">
+            <h1>Lesson: Negotiation Skills - The Art of Reaching Agreements</h1>
+        </div>
+
+        <section style="padding: 20px;">
+            <h2 style="font-size: 24px; color: #2c3e50;">🌟 Introduction</h2>
+            <p style="font-size: 16px; line-height: 1.6;">
+                Negotiation is a crucial skill that everyone uses in daily life, whether in business, relationships, or personal situations. This course will teach you how to negotiate effectively and reach mutually beneficial agreements.
+            </p>
+        </section>
+
+        <section style="padding: 20px;">
+            <h2 style="font-size: 24px; color: #2c3e50;">🎯 Objectives</h2>
+            <ul style="font-size: 16px; line-height: 1.6; list-style-type: disc; margin-left: 20px;">
+                <li>Understand the key principles of negotiation.</li>
+                <li>Learn techniques to manage difficult negotiation situations.</li>
+                <li>Master the art of finding win-win solutions.</li>
+            </ul>
+        </section>
+
+        <section style="padding: 20px; background-color: #ecf0f1;">
+            <h2 style="font-size: 24px; color: #2c3e50;">📌 1. The Basics of Negotiation</h2>
+            <p style="font-size: 16px; line-height: 1.6;">
+                Negotiation is about creating solutions that satisfy the needs of all parties involved. Understanding the basics will help you navigate the negotiation process.
+            </p>
+            <ul style="font-size: 16px; line-height: 1.6; list-style-type: disc; margin-left: 20px;">
+                <li>✅ Understand the interests of both parties, not just the positions.</li>
+                <li>✅ Be clear about your goals and priorities.</li>
+                <li>✅ Approach the negotiation with a mindset of collaboration, not competition.</li>
+            </ul>
+            <p style="font-size: 16px; line-height: 1.6; margin-top: 20px;">
+                🎥 <a href="#" style="color: #2980b9;">Click Here (Negotiation Example)</a>
+            </p>
+        </section>
+
+        <section style="padding: 20px;">
+            <h2 style="font-size: 24px; color: #2c3e50;">🧠 2. Preparing for Negotiation</h2>
+            <p style="font-size: 16px; line-height: 1.6;">
+                Proper preparation is key to successful negotiations. Here are the steps to take:
+            </p>
+            <ul style="font-size: 16px; line-height: 1.6; list-style-type: disc; margin-left: 20px;">
+                <li>🌟 Understand the other party's needs and concerns.</li>
+                <li>🌟 Prepare alternative solutions and know your limits.</li>
+                <li>🌟 Anticipate possible objections and prepare responses.</li>
+            </ul>
+        </section>
+
+        <section style="padding: 20px; background-color: #ecf0f1;">
+            <h2 style="font-size: 24px; color: #2c3e50;">🎯 3. Effective Communication in Negotiation</h2>
+            <p style="font-size: 16px; line-height: 1.6;">
+                Clear and effective communication is essential during negotiations. Here are the key aspects:
+            </p>
+            <ul style="font-size: 16px; line-height: 1.6; list-style-type: disc; margin-left: 20px;">
+                <li>✅ Listen actively to understand the other party's concerns.</li>
+                <li>✅ Ask open-ended questions to gather more information.</li>
+                <li>✅ Use clear, concise, and persuasive language.</li>
+            </ul>
+        </section>
+
+        <section style="padding: 20px;">
+            <h2 style="font-size: 24px; color: #2c3e50;">🧠 4. Managing Difficult Situations</h2>
+            <p style="font-size: 16px; line-height: 1.6;">
+                Not all negotiations go smoothly. Here’s how to handle tough situations:
+            </p>
+            <ul style="font-size: 16px; line-height: 1.6; list-style-type: disc; margin-left: 20px;">
+                <li>🌟 Stay calm and composed during high-pressure situations.</li>
+                <li>🌟 If the other party is aggressive, remain assertive, not defensive.</li>
+                <li>🌟 Be ready to walk away if the deal is not beneficial to you.</li>
+            </ul>
+        </section>
+
+        <section style="padding: 20px; background-color: #ecf0f1;">
+            <h2 style="font-size: 24px; color: #2c3e50;">💬 5. Finding Win-Win Solutions</h2>
+            <ul style="font-size: 16px; line-height: 1.6; list-style-type: none; padding: 0;">
+                <li>🌟 Focus on the interests behind the positions of both parties.</li>
+                <li>🎯 Explore creative solutions that satisfy both sides.</li>
+                <li>💡 Keep the relationship positive for future negotiations.</li>
+            </ul>
+        </section>
+
+        <section style="padding: 20px;">
+            <h2 style="font-size: 24px; color: #2c3e50;">🎯 6. Closing the Deal</h2>
+            <ul style="font-size: 16px; line-height: 1.6; list-style-type: none; padding: 0;">
+                <li>🌟 Recap the key points to ensure mutual understanding.</li>
+                <li>🌟 Be clear about the terms and expectations going forward.</li>
+                <li>🌟 End on a positive note to maintain a good relationship.</li>
+            </ul>
+        </section>
+
+        <section style="padding: 20px; background-color: #ecf0f1;">
+            <h2 style="font-size: 24px; color: #2c3e50;">💡 Final Tips</h2>
+            <ul style="font-size: 16px; line-height: 1.6; list-style-type: none; padding: 0;">
+                <li>🌟 Be flexible and open to compromise.</li>
+                <li>🌟 Maintain emotional control throughout the process.</li>
+                <li>🌟 Build long-term relationships by being fair and transparent.</li>
+            </ul>
+        </section>
+    `);
+});
+$('#conflict-resolution').on('click', function() {
+    $('#main-content').html(`
+        <div style="background-color: #8E44AD; color: white; padding: 20px; text-align: center;">
+            <h1>Lesson: Conflict Resolution - Turning Disputes into Opportunities</h1>
+        </div>
+
+        <section style="padding: 20px;">
+            <h2 style="font-size: 24px; color: #2c3e50;">🌟 Introduction</h2>
+            <p style="font-size: 16px; line-height: 1.6;">
+                Conflict resolution is an essential skill for maintaining healthy relationships in both personal and professional settings. This course will provide you with the tools and strategies to resolve conflicts effectively and find win-win solutions.
+            </p>
+        </section>
+
+        <section style="padding: 20px;">
+            <h2 style="font-size: 24px; color: #2c3e50;">🎯 Objectives</h2>
+            <ul style="font-size: 16px; line-height: 1.6; list-style-type: disc; margin-left: 20px;">
+                <li>Understand the different types of conflicts and their impact.</li>
+                <li>Learn effective strategies for resolving conflicts peacefully.</li>
+                <li>Improve communication skills to de-escalate tensions.</li>
+            </ul>
+        </section>
+
+        <section style="padding: 20px; background-color: #ecf0f1;">
+            <h2 style="font-size: 24px; color: #2c3e50;">📌 1. Understanding Conflict</h2>
+            <p style="font-size: 16px; line-height: 1.6;">
+                Conflict arises when there are opposing interests, values, or goals between individuals or groups. Understanding the types of conflicts can help you address them in the most effective way.
+            </p>
+            <ul style="font-size: 16px; line-height: 1.6; list-style-type: disc; margin-left: 20px;">
+                <li>✅ Intrapersonal conflicts (within oneself).</li>
+                <li>✅ Interpersonal conflicts (between individuals).</li>
+                <li>✅ Group conflicts (between teams or organizations).</li>
+            </ul>
+            <p style="font-size: 16px; line-height: 1.6; margin-top: 20px;">
+                🎥 <a href="#" style="color: #2980b9;">Click Here (Conflict Example)</a>
+            </p>
+        </section>
+
+        <section style="padding: 20px;">
+            <h2 style="font-size: 24px; color: #2c3e50;">🧠 2. The Role of Communication in Conflict Resolution</h2>
+            <p style="font-size: 16px; line-height: 1.6;">
+                Effective communication is key in resolving conflicts. By communicating clearly, actively listening, and remaining calm, you can de-escalate tense situations.
+            </p>
+            <ul style="font-size: 16px; line-height: 1.6; list-style-type: disc; margin-left: 20px;">
+                <li>🌟 Listen actively to understand the other person’s perspective.</li>
+                <li>🌟 Use "I" statements to express your feelings without blaming.</li>
+                <li>🌟 Stay calm and avoid escalating the situation with emotional reactions.</li>
+            </ul>
+        </section>
+
+        <section style="padding: 20px; background-color: #ecf0f1;">
+            <h2 style="font-size: 24px; color: #2c3e50;">🎯 3. Conflict Resolution Styles</h2>
+            <p style="font-size: 16px; line-height: 1.6;">
+                There are different styles of conflict resolution, each with its strengths and weaknesses. Here are the five main styles:
+            </p>
+            <ul style="font-size: 16px; line-height: 1.6; list-style-type: disc; margin-left: 20px;">
+                <li>✅ **Avoiding**: Avoiding confrontation altogether.</li>
+                <li>✅ **Accommodating**: Yielding to the other party's wishes.</li>
+                <li>✅ **Competing**: Assertively pursuing one's own goals at the expense of others.</li>
+                <li>✅ **Collaborating**: Working together to find a solution that satisfies both parties.</li>
+                <li>✅ **Compromising**: Finding a middle ground where both parties give up something.</li>
+            </ul>
+        </section>
+
+        <section style="padding: 20px;">
+            <h2 style="font-size: 24px; color: #2c3e50;">🧠 4. Strategies for Conflict Resolution</h2>
+            <p style="font-size: 16px; line-height: 1.6;">
+                Here are several strategies to help resolve conflicts effectively:
+            </p>
+            <ul style="font-size: 16px; line-height: 1.6; list-style-type: disc; margin-left: 20px;">
+                <li>🌟 **Identify the issue**: Clarify the cause of the conflict.</li>
+                <li>🌟 **Acknowledge emotions**: Recognize and validate feelings.</li>
+                <li>🌟 **Focus on interests, not positions**: Look beyond positions to understand the underlying interests of both parties.</li>
+                <li>🌟 **Brainstorm solutions**: Collaboratively generate possible solutions.</li>
+                <li>🌟 **Agree on a solution**: Once a solution is found, both parties should agree on the next steps.</li>
+            </ul>
+        </section>
+
+        <section style="padding: 20px; background-color: #ecf0f1;">
+            <h2 style="font-size: 24px; color: #2c3e50;">💬 5. Negotiation and Compromise</h2>
+            <ul style="font-size: 16px; line-height: 1.6; list-style-type: none; padding: 0;">
+                <li>🌟 Approach the conflict with a mindset of collaboration, not competition.</li>
+                <li>🎯 Consider what both parties are willing to give and take.</li>
+                <li>💡 In some cases, compromise may be the most effective approach to finding a resolution.</li>
+            </ul>
+        </section>
+
+        <section style="padding: 20px;">
+            <h2 style="font-size: 24px; color: #2c3e50;">🎯 6. Preventing Future Conflicts</h2>
+            <ul style="font-size: 16px; line-height: 1.6; list-style-type: none; padding: 0;">
+                <li>🌟 Maintain open communication to prevent misunderstandings.</li>
+                <li>🌟 Establish clear expectations and boundaries.</li>
+                <li>🌟 Foster a culture of respect and understanding in relationships and teams.</li>
+            </ul>
+        </section>
+
+        <section style="padding: 20px; background-color: #ecf0f1;">
+            <h2 style="font-size: 24px; color: #2c3e50;">💡 Final Tips</h2>
+            <ul style="font-size: 16px; line-height: 1.6; list-style-type: none; padding: 0;">
+                <li>🌟 Stay calm and avoid letting emotions control the situation.</li>
+                <li>🌟 Recognize the value of compromise and collaboration.</li>
+                <li>🌟 Focus on resolving the issue, not winning the argument.</li>
+            </ul>
+        </section>
+    `);
+    sidebar.style.display = "none";
+        
+        function goBack() {
+            location.reload(); 
+});
+
+
+    });
+</script>
+</body>
+</html>

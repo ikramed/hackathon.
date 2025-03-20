@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>AICommune Insights</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+    <style>
+        .fade-enter-active, .fade-leave-active {
+            transition: opacity 0.5s;
+        }
+        .fade-enter, .fade-leave-to {
+            opacity: 0;
+        }
+        .bg-gray-300 {
+            background-color: #d1d5db;
+        }
+        .bg-custom-red {
+            background-color: #40E0D0;
+        }
+        .slide-in {
+            animation: slide-in 0.5s forwards;
+        }
+        .slide-out {
+            animation: slide-out 0.5s forwards;
+        }
+        @keyframes slide-in {
+            from {
+                transform: translateX(-100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+        @keyframes slide-out {
+            from {
+                transform: translateX(0);
+                opacity: 1;
+            }
+            to {
+                transform: translateX(-100%);
+                opacity: 0;
+            }
+        }
+    </style>
+    <script>
+        function toggleMenu() {
+            const sidebar = document.getElementById('sidebar');
+            if (sidebar.classList.contains('hidden')) {
+                sidebar.classList.remove('hidden', 'slide-out');
+                sidebar.classList.add('slide-in');
+            } else {
+                sidebar.classList.remove('slide-in');
+                sidebar.classList.add('slide-out');
+                setTimeout(() => {
+                    sidebar.classList.add('hidden');
+                }, 500);
+            }
+        }
+
+        function toggleFeedbackSection() {
+            const mainContent = document.getElementById('main-content');
+            const feedbackSection = document.getElementById('feedback-section');
+            if (feedbackSection.classList.contains('hidden')) {
+                feedbackSection.classList.remove('hidden', 'slide-out');
+                feedbackSection.classList.add('slide-in');
+                mainContent.classList.add('hidden');
+            } else {
+                feedbackSection.classList.remove('slide-in');
+                feedbackSection.classList.add('slide-out');
+                setTimeout(() => {
+                    feedbackSection.classList.add('hidden');
+                    mainContent.classList.remove('hidden');
+                }, 500);
+            }
+        }
+
+        function submitFeedback(event) {
+            event.preventDefault();
+            const feedbackForm = document.getElementById('feedback-form');
+            const confirmationMessage = document.getElementById('confirmation-message');
+            feedbackForm.classList.add('hidden');
+            confirmationMessage.classList.remove('hidden');
+        }
+
+        function toggleBoostConfidencePopup() {
+            const boostConfidencePopup = document.getElementById('boost-confidence-popup');
+            if (boostConfidencePopup.classList.contains('hidden')) {
+                boostConfidencePopup.classList.remove('hidden', 'slide-out');
+                boostConfidencePopup.classList.add('slide-in');
+            } else {
+                boostConfidencePopup.classList.remove('slide-in');
+                boostConfidencePopup.classList.add('slide-out');
+                setTimeout(() => {
+                    boostConfidencePopup.classList.add('hidden');
+                }, 500);
+            }
+        }
+
+        function toggleCustomizeSettings() {
+            const customizeSettingsSection = document.getElementById('customize-settings-section');
+            if (customizeSettingsSection.classList.contains('hidden')) {
+                customizeSettingsSection.classList.remove('hidden', 'slide-out');
+                customizeSettingsSection.classList.add('slide-in');
+            } else {
+                customizeSettingsSection.classList.remove('slide-in');
+                customizeSettingsSection.classList.add('slide-out');
+                setTimeout(() => {
+                    customizeSettingsSection.classList.add('hidden');
+                }, 500);
+            }
+        }
+
+        function changeButtonColor(event) {
+            const buttons = document.querySelectorAll('.menu-button');
+            buttons.forEach(button => button.classList.remove('bg-blue-500', 'text-white'));
+            event.target.classList.add('bg-blue-500', 'text-white');
+        }
+
+      
+
+        function loadCommunityUpdates() {
+            
+          
+
+           
+
+            communityUpdates.forEach(update => {
+                const updateElement = document.createElement('div');
+                updateElement.classList.add('bg-custom-red', 'text-white', 'p-4', 'text-center', 'rounded');
+
+                const profilePicture = document.createElement('img');
+                profilePicture.src = update.profilePicture;
+                profilePicture.alt = `Profile picture of ${update.name}`;
+                profilePicture.classList.add('w-12', 'h-12', 'rounded-full', 'mx-auto', 'mb-2');
+
+                const name = document.createElement('p');
+                name.classList.add('font-bold');
+                name.textContent = update.name;
+
+                const activity = document.createElement('p');
+                activity.textContent = update.activity;
+
+                updateElement.appendChild(profilePicture);
+                updateElement.appendChild(name);
+                updateElement.appendChild(activity);
+
+                updatesContainer.appendChild(updateElement);
+            });
+        }
+
+        
+  </script>
+</head>
+<body class="bg-gray-100 font-sans">
+<div class="flex flex-col md:flex-row min-h-screen">
+   
+    <div id="sidebar" class="bg-gray-200 w-full md:w-1/4 p-6 hidden md:block">
+        <div class="flex items-center">
+            <img alt="AICommun logo" class="mr-2 rounded-full" height="40" src="Logo.png" width="40"/>
+            <span class="font-bold text-xl">AICom</span>
+        </div>
+<br><br>
+        <nav class="space-y-10">
+            <a class="flex items-center text-gray-700 hover:text-black cursor-pointer menu-button" onclick="toggleFeedbackSection(); changeButtonColor(event)">
+                <i class="fas fa-comments mr-2"></i>
+                Feedback &amp; Advice
+            </a>
+           
+            <a class="flex items-center text-gray-700 hover:text-black cursor-pointer menu-button" onclick="toggleBoostConfidencePopup(); changeButtonColor(event)">
+                <i class="fas fa-thumbs-up mr-2"></i>
+                Boost Confidence
+            </a>
+           
+           
+        </nav> <br><br>
+        <div class="mt-auto space-y-4">
+            <a class="flex items-center text-gray-700 hover:text-black cursor-pointer menu-button bg-gray-300 p-2 rounded" href="home.html">
+                <i class="fas fa-arrow-left mr-2"></i>
+                Back
+            </a>
+            <a class="flex items-center text-gray-700 hover:text-black cursor-pointer menu-button bg-gray-300 p-2 rounded" href="index.html">
+                <i class="fas fa-sign-out-alt mr-2"></i>
+                Sign out
+            </a>
+        </div>
+    </div>
+   
+    <div class="flex-1 p-8 relative">
+        <button class="md:hidden mb-4 bg-custom-red text-white px-4 py-2 rounded" onclick="toggleMenu()">
+            Menu
+        </button>
+      
+           
+                <h3 class="text-xl font-bold mb-4">Recommendations</h3>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
+                    <a class="bg-custom-red text-white p-4 text-center rounded cursor-pointer" href="chat.html">
+                        <i class="fas fa-comments text-2xl mb-2"></i>
+                       
+                        <p class="font-bold">Conversation</p>
+                        <p>Start conversations</p>
+                    </a>
+                    <a class="bg-custom-red text-white p-4 text-center rounded cursor-pointer" href="ex.html">
+                        <i class="fas fa-lightbulb text-2xl mb-2"></i>
+                        <p class="font-bold">Empathy Builder</p>
+                        <p>Practice empathy</p>
+                    </a>
+                    <a class="bg-custom-red text-white p-4 text-center rounded cursor-pointer" href="home.html">
+                        <i class="fas fa-brain text-2xl mb-2"></i>
+                        <p class="font-bold">Get Courses</p>
+                        <p>learn with AI </p>
+                    </a>
+                </div>
+              
+                </div>
+               
+            </div>
+        </div>
+
+        <div class="hidden fade-enter-active absolute inset-0 bg-white p-6 rounded shadow-md overflow-auto" id="feedback-section">
+            <div class="flex justify-between items-center mb-4">
+                <h3 class="text-xl font-bold">Feedback &amp; Advice</h3>
+                <button class="text-gray-600 hover:text-black" onclick="toggleFeedbackSection()">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <form id="feedback-form" onsubmit="submitFeedback(event)">
+                <div class="mb-4">
+                    <label class="block text-gray-700 mb-2" for="feedback">Your Feedback or Question</label>
+                    <textarea class="w-full p-2 border border-gray-300 rounded" id="feedback" name="feedback" required="" rows="4"></textarea>
+                </div>
+                <button class="bg-custom-red text-white px-4 py-2 rounded" type="submit">Submit</button>
+            </form>
+            <div class="hidden text-green-500 mt-4" id="confirmation-message">
+                Thank you for your feedback! We have received your input.
+            </div>
+            <div class="mt-8">
+                <h4 class="text-lg font-bold mb-2">Personalized Advice</h4>
+                <p class="text-gray-700">Based on your input, here are some personalized tips and advice:</p>
+                <ul class="list-disc list-inside mt-2 text-gray-700">
+                    <li>Tip 1: Engage more in community discussions to boost your confidence.</li>
+                    <li>Tip 2: Practice empathy by participating in our Empathy Builder exercises.</li>
+                    <li>Tip 3: Utilize our Social Strategist tools to master social interactions.</li>
+                </ul>
+            </div>
+            <div class="mt-8">
+                <h4 class="text-lg font-bold mb-2">Recommendations</h4>
+                <p class="text-gray-700">Here are some recommendations based on your profile:</p>
+                <ul class="list-disc list-inside mt-2 text-gray-700">
+                    <li>Recommendation 1: Join the "Boost Confidence" group to interact with peers.</li>
+                    <li>Recommendation 2: Try our new interactive simulations to enhance your skills.</li>
+                    <li>Recommendation 3: Follow our personalized advice to improve your social strategies.</li>
+                </ul>
+            </div>
+        </div>
+       
+        <div class="hidden fixed inset-0 bg-gray-800 bg-opacity-50 flex items-center justify-center" id="boost-confidence-popup">
+            <div class="bg-white p-6 rounded shadow-md w-3/4 max-w-4xl overflow-auto">
+                <div class="flex justify-between items-center mb-4">
+                    <h3 class="text-xl font-bold">Boost Confidence</h3>
+                    <button class="text-gray-600 hover:text-black" onclick="toggleBoostConfidencePopup()">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+                <div class="space-y-4">
+                    <div>
+                        <h4 class="text-lg font-bold mb-2">Coaches or Advisors</h4>
+                        <p class="text-gray-700">Experts in personal development who can offer tips and advice to help you build your confidence.</p>
+                    </div>
+                    <div>
+                        <h4 class="text-lg font-bold mb-2">User Testimonials and Stories</h4>
+                        <p class="text-gray-700">Stories from people who’ve gone through experiences and boosted their confidence to inspire you.</p>
+                    </div>
+                    <div>
+                        <h4 class="text-lg font-bold mb-2">Interactive Exercises</h4>
+                        <p class="text-gray-700">Exercises that you can follow to track your progress in building your self-confidence.</p>
+                    </div>
+                    <div>
+                        <h4 class="text-lg font-bold mb-2">Encouraging Messages</h4>
+                        <p class="text-gray-700">Motivational quotes or famous sayings about self-confidence.</p>
+                    </div>
+                    <div>
+                        <h4 class="text-lg font-bold mb-2">Support Groups</h4>
+                        <p class="text-gray-700">Forums or groups where you can share your experiences and support each other.</p>
+                    </div>
+                    <div>
+                        <h4 class="text-lg font-bold mb-2">Group Activities</h4>
+                        <p class="text-gray-700">Challenges or contests where you can engage with others to boost your confidence.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        
+</div>
+</div>
+</body>
+</html>
